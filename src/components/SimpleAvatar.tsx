@@ -1,0 +1,48 @@
+import React, { useState } from 'react';
+
+interface AvatarProps {
+  className?: string;
+  children: React.ReactNode;
+}
+
+export function Avatar({ className = '', children }: AvatarProps) {
+  return (
+    <div className={`relative overflow-hidden rounded-full ${className}`}>
+      {children}
+    </div>
+  );
+}
+
+interface AvatarImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+}
+
+export function AvatarImage({ src, alt, className = '' }: AvatarImageProps) {
+  const [error, setError] = useState(false);
+
+  if (error) return null;
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={`w-full h-full object-cover ${className}`}
+      onError={() => setError(true)}
+    />
+  );
+}
+
+interface AvatarFallbackProps {
+  className?: string;
+  children: React.ReactNode;
+}
+
+export function AvatarFallback({ className = '', children }: AvatarFallbackProps) {
+  return (
+    <div className={`w-full h-full flex items-center justify-center bg-gray-200 ${className}`}>
+      {children}
+    </div>
+  );
+}

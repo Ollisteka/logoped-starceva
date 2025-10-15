@@ -1,3 +1,4 @@
+import { BrowserRouter as Router } from 'react-router-dom';
 import { 
   Sidebar, 
   SidebarMenu, 
@@ -16,8 +17,9 @@ import { PortfolioSection } from "./components/PortfolioSection";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
-      <Sidebar defaultSection="profile" className="flex">
+    <Router basename="/logoped-starceva">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
+        <Sidebar defaultSection="profile" className="flex">
         <div className="flex flex-1">
           {/* Sidebar Navigation */}
           <SidebarMenu className="w-64 bg-white/90 backdrop-blur-sm p-4 min-h-screen border-r border-gray-200">
@@ -87,6 +89,7 @@ export default function App() {
           </div>
         </div>
       </Sidebar>
-    </div>
+      </div>
+    </Router>
   );
 }

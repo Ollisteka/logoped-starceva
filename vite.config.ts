@@ -8,5 +8,12 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false
+  },
+  server: {
+    historyApiFallback: true,
+    open: true
+  },
+  preview: {
+    historyApiFallback: true
   }
 })

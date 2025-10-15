@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { PATHS } from '../consts/paths';
 
 interface SidebarContextType {
   activeSection: string;
@@ -56,7 +58,7 @@ export function SidebarMenu({ className = '', children }: SidebarMenuProps) {
     <>
       {/* Desktop Sidebar */}
       <aside className={`hidden md:block ${className}`}>
-        <nav className="space-y-1">
+        <nav className="space-y-1 flex flex-col gap-2">
           {children}
         </nav>
       </aside>
@@ -72,7 +74,7 @@ export function SidebarMenu({ className = '', children }: SidebarMenuProps) {
           
           {/* Sidebar */}
           <aside className={`fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-50 md:hidden ${className}`}>
-            <nav className="space-y-1 p-4">
+            <nav className="space-y-1 p-1 flex flex-col gap-1">
               {children}
             </nav>
           </aside>
@@ -89,25 +91,31 @@ interface SidebarMenuItemProps {
 }
 
 export function SidebarMenuItem({ value, className = '', children }: SidebarMenuItemProps) {
-  const { activeSection, setActiveSection, setIsMobileOpen } = useSidebar();
-  const isActive = activeSection === value;
+  const { setIsMobileOpen } = useSidebar();
+  const location = useLocation();
+  const isActive = location.pathname === PATHS[value.toUpperCase() as keyof typeof PATHS] || 
+                   (location.pathname === PATHS.HOME && value === 'profile');
 
   const handleClick = () => {
-    setActiveSection(value);
     setIsMobileOpen(false); // Закрыть меню на мобильных при выборе
   };
 
+  const getPath = (value: string) => {
+    return value === 'profile' ? PATHS.PROFILE : PATHS[value.toUpperCase() as keyof typeof PATHS];
+  };
+
   return (
-    <button
+    <Link
+      to={getPath(value)}
       onClick={handleClick}
-      className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
+      className={`block w-full text-left px-4 py-3 rounded-lg transition-colors cursor-pointer ${
         isActive
           ? 'bg-primary/10 text-primary'
           : 'text-gray-700 hover:bg-gray-100'
       } ${className}`}
     >
       {children}
-    </button>
+    </Link>
   );
 }
 
@@ -118,8 +126,11 @@ interface SidebarContentProps {
 }
 
 export function SidebarContent({ value, className = '', children }: SidebarContentProps) {
-  const { activeSection } = useSidebar();
-  if (activeSection !== value) return null;
+  const location = useLocation();
+  const isActive = location.pathname === PATHS[value.toUpperCase() as keyof typeof PATHS] || 
+                   (location.pathname === PATHS.HOME && value === 'profile');
+  
+  if (!isActive) return null;
 
   return <div className={className}>{children}</div>;
 }

@@ -35,8 +35,14 @@ jobs:
     - name: Build
       run: yarn build
       
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        path: ./dist
+      
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
       if: github.ref == 'refs/heads/main'
       with:
-        path: ./dist
+        name: github-pages

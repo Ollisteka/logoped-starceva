@@ -1,26 +1,17 @@
+import { BASE_PATH } from "../consts/paths";
+import { DownloadButton } from "./DownloadButton";
 import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 
 export function MentorshipSection() {
   const mentorshipActivities = [
     {
-      title: "Наставничество молодых специалистов",
-      period: "2023-2025",
-      description: "Курирование двух молодых педагогов-логопедов, помощь в адаптации и профессиональном становлении",
-      achievements: [
-        "Разработка индивидуальных планов развития",
-        "Проведение открытых занятий и мастер-классов",
-        "Консультационная поддержка"
-      ]
-    },
-    {
-      title: "Методическое сопровождение",
-      period: "2022-настоящее время",
-      description: "Участие в работе методического объединения учителей-логопедов",
-      achievements: [
-        "Обмен опытом с коллегами",
-        "Разработка методических рекомендаций",
-        "Консультирование по сложным случаям"
-      ]
+      title: "Кураторство студентов УрГПУ (ИСО)",
+      period: "2025",
+      description: "Работа над проектом",
+      download: {
+        href: `${BASE_PATH}/documents/award-letter-nastavnichestvo.pdf`,
+        text: "Скачать благодарственное письмо"
+      }
     }
   ];
 
@@ -42,19 +33,11 @@ export function MentorshipSection() {
                   <span className="text-sm text-muted-foreground whitespace-nowrap">{activity.period}</span>
                 </div>
                 <p className="text-muted-foreground mb-4">{activity.description}</p>
-                <div>
-                  <h4 className="mb-2">
-                    Достижения
-                  </h4>
-                  <ul className="space-y-2">
-                    {activity.achievements.map((achievement, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className="text-primary mt-1.5">•</span>
-                        <span>{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {activity.download && (
+                  <DownloadButton href={activity.download.href}>
+                    {activity.download.text || "Скачать"}
+                  </DownloadButton>
+                )}
               </div>
             ))}
           </div>

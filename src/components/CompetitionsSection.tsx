@@ -1,35 +1,20 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 import { Badge } from "./SimpleBadge";
+import { BASE_PATH } from "../consts/paths";
+import { DownloadButton } from "./DownloadButton";
 
 export function CompetitionsSection() {
   const competitions = [
     {
-      title: "Всероссийский конкурс 'Учитель года'",
-      year: "2024",
-      level: "Региональный этап",
-      result: "Лауреат",
-      description: "Представление опыта работы по использованию инновационных методик в логопедической практике"
-    },
-    {
-      title: "Конкурс методических разработок",
-      year: "2023",
-      level: "Муниципальный",
-      result: "1 место",
-      description: "Авторская программа коррекции дисграфии у младших школьников"
-    },
-    {
-      title: "Лучший педагог образовательного учреждения",
-      year: "2023",
-      level: "Школьный",
-      result: "Победитель",
-      description: "Признание коллег и администрации за профессионализм и преданность делу"
-    },
-    {
-      title: "Конкурс 'Современные образовательные технологии'",
-      year: "2022",
-      level: "Региональный",
-      result: "Призёр",
-      description: "Применение ИКТ в логопедической работе"
+      title: "«Организация специальных условий, методы и приемы работы обучения и воспитания детей с ОВЗ и с инвалидностью, с учетом целевых ориентиров ФАОП»",
+      year: "2025",
+      result: "Участник",
+      description: "Работа \"Формирование коммуникативных навыков у обучающихся с интеллектуальными нарушениями\"",
+      level: "Всероссийский",
+      download: {
+        href: `${BASE_PATH}/documents/award-letter-03-08-2025-formirovanie-kommunikativnyh-navykov.pdf`,
+        text: "Скачать благодарственное письмо"
+      }
     }
   ];
 
@@ -42,8 +27,8 @@ export function CompetitionsSection() {
         <CardContent>
           <div className="space-y-4">
             {competitions.map((competition, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="p-5 rounded-lg border border-border bg-card hover:shadow-md transition-shadow"
               >
                 <div className="flex items-start justify-between gap-4 mb-3">
@@ -51,14 +36,19 @@ export function CompetitionsSection() {
                     <h3 className="mb-2">{competition.title}</h3>
                     <div className="flex flex-wrap gap-2 mb-2">
                       <Badge variant="secondary">{competition.year}</Badge>
-                      <Badge variant="outline">{competition.level}</Badge>
+                      {competition.level && <Badge variant="outline">{competition.level}</Badge>}
                       <Badge className="bg-primary/10 text-primary hover:bg-primary/20">
                         {competition.result}
                       </Badge>
                     </div>
                   </div>
                 </div>
-                <p className="text-muted-foreground">{competition.description}</p>
+                <p className="text-muted-foreground mb-4">{competition.description}</p>
+                {competition.download && (
+                  <DownloadButton href={competition.download.href}>
+                    {competition.download.text || "Скачать"}
+                  </DownloadButton>
+                )}
               </div>
             ))}
           </div>

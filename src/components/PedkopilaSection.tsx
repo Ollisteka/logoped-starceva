@@ -1,27 +1,16 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
+import { Badge } from "./SimpleBadge";
 import { DownloadButton } from "./DownloadButton";
+import { BASE_PATH } from "../consts/paths";
 
 export function PedkopilaSection() {
   const materials = [
     {
-      title: "Дидактические игры для развития фонематического слуха",
+      title: "Логопедическая диагностика обучающихся 1 класса",
       category: "Методические материалы",
-      description: "Сборник игр и упражнений для работы над фонематическим восприятием"
-    },
-    {
-      title: "Артикуляционная гимнастика",
-      category: "Практические упражнения",
-      description: "Комплексы упражнений для развития артикуляционного аппарата"
-    },
-    {
-      title: "Рабочие листы для коррекции письма",
-      category: "Дидактический материал",
-      description: "Набор заданий для профилактики и коррекции дисграфии"
-    },
-    {
-      title: "Речевые игры для групповых занятий",
-      category: "Методические материалы",
-      description: "Коллекция игр для развития связн��й речи в группе"
+      year: "2025",
+      description: "Сборник упражнений для проведения обследования устной речи у обучающихся с интеллектуальными нарушениями",
+      link: `${BASE_PATH}/documents/presentation-speech-therapy-diagnostics-grade-1.pptx`
     }
   ];
 
@@ -32,18 +21,27 @@ export function PedkopilaSection() {
           <CardTitle>Педагогическая копилка</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="space-y-4">
             {materials.map((material, index) => (
-              <div 
-                key={index} 
-                className="p-4 rounded-lg border border-border bg-card hover:shadow-md transition-shadow"
+              <div
+                key={index}
+                className="p-5 rounded-lg border border-border bg-card hover:shadow-md transition-shadow"
               >
-                <h3 className="mb-2">{material.title}</h3>
-                <p className="text-muted-foreground mb-3">{material.description}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-primary/70">{material.category}</span>
-                  <DownloadButton href={"todo"}>Скачать</DownloadButton>
+                <div className="flex items-start justify-between gap-4 mb-3">
+                  <div className="flex-1">
+                    <h3 className="mb-2">{material.title}</h3>
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      <Badge variant="secondary">{material.year}</Badge>
+                      <Badge variant="outline">{material.category}</Badge>
+                    </div>
+                  </div>
                 </div>
+                <p className="text-muted-foreground mb-4">{material.description}</p>
+                {material.link && (
+                  <DownloadButton href={material.link}>
+                    Скачать
+                  </DownloadButton>
+                )}
               </div>
             ))}
           </div>

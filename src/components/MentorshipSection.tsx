@@ -38,7 +38,7 @@ export function MentorshipSection() {
         href: `${BASE_PATH}/documents/award-letter-nastavnichestvo.pdf`,
         text: "Скачать благодарственное письмо"
       },
-      photos: { basePath: 'mentors-2025-urgpu', images: ['1.jpg', '2.jpg', '3.jpg'] }
+      photos: { basePath: 'photos/mentors-2025-urgpu', images: ['1.jpg', '2.jpg', '3.jpg'] }
     }
   ];
 
@@ -79,7 +79,7 @@ export function MentorshipSection() {
                             className="w-20 h-20 relative border-0 bg-transparent p-0 rounded-lg overflow-hidden cursor-pointer group"
                           >
                             <img
-                              src={`/photos/${activity.photos.basePath}/${image}`}
+                              src={`${activity.photos.basePath}/${image}`}
                               alt={`Фото ${imgIndex + 1}`}
                               className="w-full h-full object-cover transition-transform duration-200 ease-in-out group-hover:scale-105"
                             />

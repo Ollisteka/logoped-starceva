@@ -3,7 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 import { useState } from "react";
 import { ImageGalleryModal } from "./SimpleModal";
 import { Badge } from "./SimpleBadge";
-import { mentorshipImages } from "../assets/images";
 import { BASE_PATH } from "../consts/paths";
 
 export function MentorshipSection() {
@@ -24,8 +23,9 @@ export function MentorshipSection() {
     }
   };
 
-  const openGallery = (photos: string[], imageIndex: number = 0) => {
-    setCurrentGalleryImages(photos);
+  const openGallery = (photos: { basePath: string, images: string[] }, imageIndex: number = 0) => {
+    const fullPaths = photos.images.map(img => `${BASE_PATH}/photos/${photos.basePath}/${img}`);
+    setCurrentGalleryImages(fullPaths);
     setSelectedImageIndex(imageIndex);
   };
 
@@ -38,7 +38,7 @@ export function MentorshipSection() {
         href: `${BASE_PATH}/documents/award-letter-nastavnichestvo.pdf`,
         text: "Скачать благодарственное письмо"
       },
-      photos: mentorshipImages['mentors-2025-urgpu']
+      photos: { basePath: 'mentors-2025-urgpu', images: ['1.jpg', '2.jpg', '3.jpg'] }
     }
   ];
 
@@ -72,14 +72,14 @@ export function MentorshipSection() {
                     <div className="border-t border-gray-200 pt-6 mt-6">
                       <h4 className="mb-4 text-sm font-medium text-gray-700">Фотографии</h4>
                       <div className="flex flex-wrap gap-2 pb-2">
-                        {activity.photos?.map((image, imgIndex) => (
+                        {activity.photos.images.map((image, imgIndex) => (
                           <button
                             key={imgIndex}
                             onClick={() => openGallery(activity.photos, imgIndex)}
                             className="w-20 h-20 relative border-0 bg-transparent p-0 rounded-lg overflow-hidden cursor-pointer group"
                           >
                             <img
-                              src={image}
+                              src={`${BASE_PATH}/photos/${activity.photos.basePath}/${image}`}
                               alt={`Фото ${imgIndex + 1}`}
                               className="w-full h-full object-cover transition-transform duration-200 ease-in-out group-hover:scale-105"
                             />

@@ -11,7 +11,7 @@ export function DownloadButton({
   href, 
   children, 
   className = '', 
-  download = true 
+  download = false 
 }: DownloadButtonProps) {
   return (
     <a 

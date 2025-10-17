@@ -38,8 +38,15 @@ jobs:
       - name: Enable Corepack
         run: corepack enable
 
-      - name: Set Yarn version
-        run: corepack prepare yarn@4.10.3 --activate
+      - name: Install Yarn via Corepack
+        run: |
+          corepack install yarn@4.10.3
+          corepack enable yarn@4.10.3
+        env:
+          COREPACK_ENABLE_STRICT: 0
+
+      - name: Verify Yarn version
+        run: yarn --version
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile

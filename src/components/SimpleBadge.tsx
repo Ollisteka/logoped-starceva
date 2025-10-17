@@ -1,16 +1,17 @@
 import React from 'react';
 
 interface BadgeProps {
-  variant?: 'default' | 'secondary' | 'outline';
+  variant?: 'default' | 'secondary' | 'outline' | 'success';
   className?: string;
   children: React.ReactNode;
 }
 
 export function Badge({ variant = 'default', className = '', children }: BadgeProps) {
   const variantStyles = {
-    default: 'bg-gray-900 text-white',
+    default: 'bg-gray-900 text-gray-900',
     secondary: 'bg-gray-100 text-gray-900',
-    outline: 'bg-transparent border border-gray-300 text-gray-700'
+    outline: 'bg-transparent border border-gray-300 text-gray-700',
+    success: 'bg-green-200 text-green-800'
   };
 
   return (

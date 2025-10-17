@@ -770,6 +770,10 @@
     background-color: var(--color-green-100);
   }
 
+  .bg-green-200 {
+    background-color:  var(--color-green-200);
+  }
+
   .bg-primary\/10 {
     background-color: var(--primary);
   }

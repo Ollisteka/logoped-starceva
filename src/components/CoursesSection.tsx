@@ -55,7 +55,7 @@ export function CoursesSection() {
 
                 <div className="flex gap-2 mb-4">
                   <Badge variant="outline">{course.hours}</Badge>
-                  <Badge className="bg-green-100 text-green-800 hover:bg-green-200">
+                  <Badge variant="success">
                     ✓ {course.status}
                   </Badge>
                 </div>

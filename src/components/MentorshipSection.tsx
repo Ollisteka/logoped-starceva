@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 import { useState } from "react";
 import { ImageGalleryModal } from "./SimpleModal";
 import { Badge } from "./SimpleBadge";
+import { mentorshipImages } from "../assets/images";
 
 export function MentorshipSection() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
@@ -23,9 +24,8 @@ export function MentorshipSection() {
     }
   };
 
-  const openGallery = (photos: { basePath: string, images: string[] }, imageIndex: number = 0) => {
-    const fullPaths = photos.images.map(img => `/photos/${photos.basePath}/${img}`);
-    setCurrentGalleryImages(fullPaths);
+  const openGallery = (photos: string[], imageIndex: number = 0) => {
+    setCurrentGalleryImages(photos);
     setSelectedImageIndex(imageIndex);
   };
 
@@ -38,7 +38,7 @@ export function MentorshipSection() {
         href: `${BASE_PATH}/documents/award-letter-nastavnichestvo.pdf`,
         text: "Скачать благодарственное письмо"
       },
-      photos: { basePath: 'photos/mentors-2025-urgpu', images: ['1.jpg', '2.jpg', '3.jpg'] }
+      photos: mentorshipImages['mentors-2025-urgpu']
     }
   ];
 
@@ -72,14 +72,14 @@ export function MentorshipSection() {
                     <div className="border-t border-gray-200 pt-6 mt-6">
                       <h4 className="mb-4 text-sm font-medium text-gray-700">Фотографии</h4>
                       <div className="flex flex-wrap gap-2 pb-2">
-                        {activity.photos.images.map((image, imgIndex) => (
+                        {activity.photos?.map((image, imgIndex) => (
                           <button
                             key={imgIndex}
                             onClick={() => openGallery(activity.photos, imgIndex)}
                             className="w-20 h-20 relative border-0 bg-transparent p-0 rounded-lg overflow-hidden cursor-pointer group"
                           >
                             <img
-                              src={`${activity.photos.basePath}/${image}`}
+                              src={image}
                               alt={`Фото ${imgIndex + 1}`}
                               className="w-full h-full object-cover transition-transform duration-200 ease-in-out group-hover:scale-105"
                             />

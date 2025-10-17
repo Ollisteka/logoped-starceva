@@ -1,5 +1,5 @@
 // Базовый путь для GitHub Pages
-export const BASE_PATH = import.meta.env.BASE_URL;
+export const BASE_PATH = import.meta.env.BASE_URL?.replace(/\/$/, '') || '';
 
 // Константы путей для навигации
 export const PATHS = {

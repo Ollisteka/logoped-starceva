@@ -24,7 +24,7 @@ export function MentorshipSection() {
   };
 
   const openGallery = (photos: { basePath: string, images: string[] }, imageIndex: number = 0) => {
-    const fullPaths = photos.images.map(img => `${BASE_PATH}/photos/${photos.basePath}/${img}`);
+    const fullPaths = photos.images.map(img => `/photos/${photos.basePath}/${img}`);
     setCurrentGalleryImages(fullPaths);
     setSelectedImageIndex(imageIndex);
   };
@@ -79,7 +79,7 @@ export function MentorshipSection() {
                             className="w-20 h-20 relative border-0 bg-transparent p-0 rounded-lg overflow-hidden cursor-pointer group"
                           >
                             <img
-                              src={`${BASE_PATH}/photos/${activity.photos.basePath}/${image}`}
+                              src={`/photos/${activity.photos.basePath}/${image}`}
                               alt={`Фото ${imgIndex + 1}`}
                               className="w-full h-full object-cover transition-transform duration-200 ease-in-out group-hover:scale-105"
                             />

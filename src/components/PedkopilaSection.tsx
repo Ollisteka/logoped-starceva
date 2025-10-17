@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
-import { Button } from "./SimpleButton";
+import { DownloadButton } from "./DownloadButton";
 
 export function PedkopilaSection() {
   const materials = [
@@ -42,9 +42,7 @@ export function PedkopilaSection() {
                 <p className="text-muted-foreground mb-3">{material.description}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-primary/70">{material.category}</span>
-                  <Button variant="ghost" size="sm">
-                    Скачать ↓
-                  </Button>
+                  <DownloadButton href={"todo"}>Скачать</DownloadButton>
                 </div>
               </div>
             ))}

@@ -1,3 +1,6 @@
+// Базовый путь для GitHub Pages
+export const BASE_PATH = import.meta.env.BASE_URL;
+
 // Константы путей для навигации
 export const PATHS = {
   HOME: '/',

@@ -13,7 +13,6 @@ import { MentorshipSection } from "./components/MentorshipSection";
 import { SportsSection } from "./components/SportsSection";
 import { CompetitionsSection } from "./components/CompetitionsSection";
 import { CoursesSection } from "./components/CoursesSection";
-import { PortfolioSection } from "./components/PortfolioSection";
 
 export default function App() {
   return (
@@ -35,7 +34,6 @@ export default function App() {
             <SidebarMenuItem value="sports">Спортивные мероприятия</SidebarMenuItem>
             <SidebarMenuItem value="competitions">Конкурсы</SidebarMenuItem>
             <SidebarMenuItem value="courses">Курсы</SidebarMenuItem>
-            <SidebarMenuItem value="portfolio">Портфолио</SidebarMenuItem>
           </SidebarMenu>
 
           {/* Main Content */}
@@ -78,9 +76,6 @@ export default function App() {
                 <CoursesSection />
               </SidebarContent>
 
-              <SidebarContent value="portfolio">
-                <PortfolioSection />
-              </SidebarContent>
 
               <footer className="mt-12 text-center text-gray-500 text-sm">
                 <p>© 2025 Старцева Светлана Александровна</p>

@@ -1,4 +1,3 @@
-import { BASE_PATH } from "../consts/paths";
 import { DownloadButton } from "./DownloadButton";
 import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 import { useState } from "react";
@@ -35,7 +34,7 @@ export function MentorshipSection() {
       period: "2025",
       description: "Работа над проектом",
       download: {
-        href: `${BASE_PATH}/documents/award-letter-nastavnichestvo.pdf`,
+        href: `/documents/award-letter-nastavnichestvo.pdf`,
         text: "Скачать благодарственное письмо"
       },
       photos: mentorshipImages['mentors-2025-urgpu']

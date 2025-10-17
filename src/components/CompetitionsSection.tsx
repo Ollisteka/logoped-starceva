@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 import { Badge } from "./SimpleBadge";
-import { BASE_PATH } from "../consts/paths";
 import { DownloadButton } from "./DownloadButton";
 import { NBSP } from "../consts/typography";
 
@@ -13,7 +12,7 @@ export function CompetitionsSection() {
       description: `Работа «Формирование коммуникативных навыков у${NBSP}обучающихся с${NBSP}интеллектуальными нарушениями»`,
       level: "Всероссийский",
       download: {
-        href: `${BASE_PATH}/documents/award-letter-03-08-2025-formirovanie-kommunikativnyh-navykov.pdf`,
+        href: `/documents/award-letter-03-08-2025-formirovanie-kommunikativnyh-navykov.pdf`,
         text: "Скачать благодарственное письмо"
       }
     }

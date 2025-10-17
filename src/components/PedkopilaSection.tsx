@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 import { Badge } from "./SimpleBadge";
 import { DownloadButton } from "./DownloadButton";
-import { BASE_PATH } from "../consts/paths";
 import { NBSP } from "../consts/typography";
 
 export function PedkopilaSection() {
@@ -11,7 +10,7 @@ export function PedkopilaSection() {
       category: "Методические материалы",
       year: "2025",
       description: `Сборник упражнений для проведения обследования устной речи у${NBSP}обучающихся с${NBSP}интеллектуальными нарушениями`,
-      link: `${BASE_PATH}/documents/presentation-speech-therapy-diagnostics-grade-1.pptx`
+      link: `/documents/presentation-speech-therapy-diagnostics-grade-1.pptx`
     }
   ];
 

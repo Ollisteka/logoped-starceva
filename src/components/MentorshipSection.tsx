@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ImageGalleryModal } from "./SimpleModal";
 import { Badge } from "./SimpleBadge";
 import { mentorshipImages } from "../assets/images";
+import { BASE_PATH } from "../consts/paths";
 
 export function MentorshipSection() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
@@ -34,7 +35,7 @@ export function MentorshipSection() {
       period: "2025",
       description: "Работа над проектом",
       download: {
-        href: `/documents/award-letter-nastavnichestvo.pdf`,
+        href: `${BASE_PATH}/documents/award-letter-nastavnichestvo.pdf`,
         text: "Скачать благодарственное письмо"
       },
       photos: mentorshipImages['mentors-2025-urgpu']

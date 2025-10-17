@@ -45,14 +45,14 @@ export function CoursesSection() {
             {courses.map((course, index) => (
               <div
                 key={index}
-                className="p-5 rounded-lg border border-border bg-card hover:shadow-md transition-shadow"
+                className="p-5 rounded-lg border border-border bg-card"
               >
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <h3 className="flex-1">{course.title}</h3>
                   <Badge variant="secondary">{course.year}</Badge>
                 </div>
 
-                <p className="text-muted-foreground mb-2">{course.institution}</p>
+                <p className="text-gray-500 mb-2">{course.institution}</p>
 
                 <div className="flex gap-2 mb-4">
                   <Badge variant="outline">{course.hours}</Badge>

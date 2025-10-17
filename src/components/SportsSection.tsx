@@ -44,7 +44,7 @@ export function SportsSection() {
             {sportsEvents.map((event, index) => (
               <div 
                 key={index} 
-                className="p-4 rounded-lg border border-border bg-card hover:shadow-md transition-shadow"
+                className="p-4 rounded-lg border border-border bg-card"
               >
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <h3 className="flex-1">{event.title}</h3>
@@ -53,7 +53,7 @@ export function SportsSection() {
                   <Badge variant="outline">{event.category}</Badge>
                   <Badge variant="secondary">{event.role}</Badge>
                 </div>
-                <p className="text-sm text-muted-foreground mb-2">{event.date}</p>
+                <p className="text-sm text-gray-500 mb-2">{event.date}</p>
                 <p className="text-primary/80">{event.achievement}</p>
               </div>
             ))}

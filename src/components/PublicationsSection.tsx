@@ -34,14 +34,14 @@ export function PublicationsSection() {
             {publications.map((pub, index) => (
               <div 
                 key={index} 
-                className="p-4 rounded-lg border border-border bg-card hover:shadow-md transition-shadow"
+                className="p-4 rounded-lg border border-border bg-card"
               >
                 <div className="flex items-start justify-between gap-4 mb-2">
                   <h3 className="flex-1">{pub.title}</h3>
                   <Badge variant="secondary">{pub.year}</Badge>
                 </div>
                 <Badge className="mb-2" variant="outline">{pub.type}</Badge>
-                <p className="text-muted-foreground">{pub.description}</p>
+                <p className="text-gray-500">{pub.description}</p>
               </div>
             ))}
           </div>

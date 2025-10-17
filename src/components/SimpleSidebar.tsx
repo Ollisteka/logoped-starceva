@@ -110,8 +110,8 @@ export function SidebarMenuItem({ value, className = '', children }: SidebarMenu
       onClick={handleClick}
       className={`block w-full text-left px-4 py-3 rounded-lg transition-colors cursor-pointer ${
         isActive
-          ? 'bg-primary/10 text-primary'
-          : 'text-gray-700 hover:bg-gray-100'
+          ? 'bg-gray-200 text-gray-800'
+          : 'hover:bg-gray-100 text-gray-700'
       } ${className}`}
     >
       {children}

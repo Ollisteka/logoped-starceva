@@ -26,7 +26,7 @@ export function PedkopilaSection() {
             {materials.map((material, index) => (
               <div
                 key={index}
-                className="p-5 rounded-lg border border-border bg-card hover:shadow-md transition-shadow"
+                className="p-5 rounded-lg border border-border bg-card"
               >
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <div className="flex-1">
@@ -37,7 +37,7 @@ export function PedkopilaSection() {
                     </div>
                   </div>
                 </div>
-                <p className="text-muted-foreground mb-4">{material.description}</p>
+                <p className="text-gray-500 mb-4">{material.description}</p>
                 {material.link && (
                   <DownloadButton href={material.link}>
                     Скачать

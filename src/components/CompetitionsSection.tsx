@@ -30,7 +30,7 @@ export function CompetitionsSection() {
             {competitions.map((competition, index) => (
               <div
                 key={index}
-                className="p-5 rounded-lg border border-border bg-card hover:shadow-md transition-shadow"
+                className="p-5 rounded-lg border border-border bg-card"
               >
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <div className="flex-1">
@@ -38,13 +38,13 @@ export function CompetitionsSection() {
                     <div className="flex flex-wrap gap-2 mb-2">
                       <Badge variant="secondary">{competition.year}</Badge>
                       {competition.level && <Badge variant="outline">{competition.level}</Badge>}
-                      <Badge className="bg-primary/10 text-primary hover:bg-primary/20">
+                      <Badge>
                         {competition.result}
                       </Badge>
                     </div>
                   </div>
                 </div>
-                <p className="text-muted-foreground mb-4">{competition.description}</p>
+                <p className="text-gray-500 mb-4">{competition.description}</p>
                 {competition.download && (
                   <DownloadButton href={competition.download.href}>
                     {competition.download.text || "Скачать"}

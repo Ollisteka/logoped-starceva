@@ -2,14 +2,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 import { Badge } from "./SimpleBadge";
 import { BASE_PATH } from "../consts/paths";
 import { DownloadButton } from "./DownloadButton";
+import { NBSP } from "../consts/typography";
 
 export function CompetitionsSection() {
   const competitions = [
     {
-      title: "«Организация специальных условий, методы и приемы работы обучения и воспитания детей с ОВЗ и с инвалидностью, с учетом целевых ориентиров ФАОП»",
+      title: `«Организация специальных условий, методы и${NBSP}приёмы работы обучения и${NBSP}воспитания детей с${NBSP}ОВЗ и${NBSP}с${NBSP}инвалидностью, с${NBSP}учётом целевых ориентиров ФАОП»`,
       year: "2025",
       result: "Участник",
-      description: "Работа \"Формирование коммуникативных навыков у обучающихся с интеллектуальными нарушениями\"",
+      description: `Работа «Формирование коммуникативных навыков у${NBSP}обучающихся с${NBSP}интеллектуальными нарушениями»`,
       level: "Всероссийский",
       download: {
         href: `${BASE_PATH}/documents/award-letter-03-08-2025-formirovanie-kommunikativnyh-navykov.pdf`,

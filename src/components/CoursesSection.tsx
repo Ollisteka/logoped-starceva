@@ -2,13 +2,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 import { Badge } from "./SimpleBadge";
 import { DownloadButton } from "./DownloadButton";
 import { BASE_PATH } from "../consts/paths";
+import { NBSP } from "../consts/typography";
 
 export function CoursesSection() {
   const courses = [
     {
-      title: "Методика преподавания предмета \"Основы безопасности и защиты Родины\" (ОБЗР) в условиях реализации ФГОС",
-      institution: "ООО \"Московский институт профессиональной переподготовки и повышения квалификации педагогов\"",
-      hours: "72 часа",
+      title: `Методика преподавания предмета «Основы безопасности и защиты Родины» (ОБЗР) в${NBSP}условиях реализации ФГОС`,
+      institution: "ООО «Московский институт профессиональной переподготовки и повышения квалификации педагогов»",
+      hours: `72${NBSP}часа`,
       year: "2025",
       status: "Завершен",
       skills: [
@@ -19,9 +20,9 @@ export function CoursesSection() {
       certificate: `${BASE_PATH}/documents/advanced-training-obzr.pdf`
     },
     {
-      title: "Технологии логопедической работы с детьми с расстройством аутистического спектра (РАС)",
-      institution: "ООО \"Инфоурок\"",
-      hours: "144 часов",
+      title: `Технологии логопедической работы с${NBSP}детьми с${NBSP}расстройством аутистического спектра (РАС)`,
+      institution: "ООО «Инфоурок»",
+      hours: `144${NBSP}часа`,
       year: "2025",
       status: "Завершен",
       skills: [

@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 import { Badge } from "./SimpleBadge";
 import { DownloadButton } from "./DownloadButton";
 import { NBSP } from "../consts/typography";
+import { BASE_PATH } from "../consts/paths";
 
 export function PedkopilaSection() {
   const materials = [
@@ -10,7 +11,7 @@ export function PedkopilaSection() {
       category: "Методические материалы",
       year: "2025",
       description: `Сборник упражнений для проведения обследования устной речи у${NBSP}обучающихся с${NBSP}интеллектуальными нарушениями`,
-      link: `/documents/presentation-speech-therapy-diagnostics-grade-1.pptx`
+      link: `${BASE_PATH}/documents/presentation-speech-therapy-diagnostics-grade-1.pptx`
     }
   ];
 
@@ -38,7 +39,7 @@ export function PedkopilaSection() {
                 </div>
                 <p className="text-gray-500 mb-4">{material.description}</p>
                 {material.link && (
-                  <DownloadButton href={material.link}>
+                  <DownloadButton href={material.link} download>
                     Скачать
                   </DownloadButton>
                 )}

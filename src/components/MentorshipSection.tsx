@@ -4,7 +4,6 @@ import { useState } from "react";
 import { ImageGalleryModal } from "./SimpleModal";
 import { Badge } from "./SimpleBadge";
 import { BASE_PATH } from "../consts/paths";
-import { href } from "react-router-dom";
 import { NBSP } from "../consts/typography";
 
 export function MentorshipSection() {
@@ -25,8 +24,8 @@ export function MentorshipSection() {
     }
   };
 
-  const openGallery = (photos: { basePath: string, images: string[] }, imageIndex: number = 0) => {
-    const fullPaths = photos.images.map(img => `${BASE_PATH}/photos/${photos.basePath}/${img}`);
+  const openGallery = (photos: typeof mentorshipActivities[number]['photos'], imageIndex: number = 0) => {
+    const fullPaths = photos.images.map(img => `${BASE_PATH}/photos/${photos.basePath}/${img.src}`);
     setCurrentGalleryImages(fullPaths);
     setSelectedImageIndex(imageIndex);
   };
@@ -45,7 +44,14 @@ export function MentorshipSection() {
           href: `${BASE_PATH}/documents/award-letter-nastavnichestvo.pdf`,
           text: "Скачать благодарственное письмо"
         }],
-      photos: { basePath: 'mentors-2025-urgpu', images: ['1.jpg', '2.jpg', '3.jpg'] }
+      photos: {
+        basePath: 'mentors-2025-urgpu',
+        images: [
+          { src: '1.jpg', alt: 'Групповое фото Светланы Александровны и студентов УрГПУ' },
+          { src: '2.jpg', alt: 'Светлана Александровна и студентка УрГПУ занимаются с ребёнком перед зеркалом, у ребёнка высунут язык' },
+          { src: '3.jpg', alt: 'Светлана Александровна и студентка УрГПУ занимаются с ребёнком перед зеркалом, студентка и ребёнок улыбаются' }
+        ]
+      }
     }
   ];
 
@@ -90,8 +96,8 @@ export function MentorshipSection() {
                             className="w-20 h-20 relative border-0 bg-transparent p-0 rounded-lg overflow-hidden cursor-pointer group"
                           >
                             <img
-                              src={`${BASE_PATH}/photos/${activity.photos.basePath}/${image}`}
-                              alt={`Фото ${imgIndex + 1}`}
+                              src={`${BASE_PATH}/photos/${activity.photos.basePath}/${image.src}`}
+                              alt={image.alt}
                               className="w-full h-full object-cover transition-transform duration-200 ease-in-out group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-transparent flex items-center justify-center transition-colors duration-200 ease-in-out group-hover:bg-black/30">

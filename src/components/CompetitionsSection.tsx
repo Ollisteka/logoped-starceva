@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 import { Badge } from "./SimpleBadge";
-import { Link } from "./Link";
+import { LinkList } from "./LinkList";
 import { NBSP } from "../consts/typography";
 import { BASE_PATH } from "../consts/paths";
 import { PhotoGallery } from "./PhotoGallery";
@@ -17,10 +17,10 @@ export function CompetitionsSection() {
         {
           href: `https://xn--80aakcbevmvw9p.xn--p1ai/edu-07-2025-pb-67136/`,
           text: "Перейти к работе",
-          icon: 'link'
+          icon: 'link' as const
         },
         {
-          href: `${BASE_PATH}/documents/award-letter-03-08-2025-formirovanie-kommunikativnyh-navykov.pdf`,
+          href: `${BASE_PATH}/documents/formirovanie-kommunikativnyh-navykov/award-letter-03-08-2025-formirovanie-kommunikativnyh-navykov.pdf`,
           text: "Скачать благодарственное письмо"
         }
       ]
@@ -89,13 +89,7 @@ export function CompetitionsSection() {
                 </div>
                 <p className="text-gray-500 mb-4">{competition.description}</p>
                 {competition.downloads && (
-                  <div className="flex flex-col gap-2">
-                    {competition.downloads.map((download, downloadIndex) => (
-                      <Link key={downloadIndex} href={download.href} icon={download.icon || 'download'}>
-                        {download.text || "Скачать"}
-                      </Link>
-                    ))}
-                  </div>
+                  <LinkList downloads={competition.downloads} />
                 )}
                 {competition.photos && (
                   <PhotoGallery photos={competition.photos} title={competition.title} />

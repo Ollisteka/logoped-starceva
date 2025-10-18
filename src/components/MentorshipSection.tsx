@@ -1,6 +1,6 @@
-import { Link } from "./Link";
 import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 import { Badge } from "./SimpleBadge";
+import { LinkList } from "./LinkList";
 import { PhotoGallery } from "./PhotoGallery";
 import { BASE_PATH } from "../consts/paths";
 import { NBSP } from "../consts/typography";
@@ -53,13 +53,7 @@ export function MentorshipSection() {
                   <p className="text-gray-500 mb-4">{activity.description}</p>
 
                   {activity.downloads && (
-                    <div className="flex flex-col gap-2">
-                      {activity.downloads.map((download, index) => (
-                      <Link key={index} href={download.href}>
-                        {download.text || "Скачать"}
-                      </Link>
-                      ))}
-                    </div>
+                    <LinkList downloads={activity.downloads} />
                   )}
 
                   {activity.photos && (

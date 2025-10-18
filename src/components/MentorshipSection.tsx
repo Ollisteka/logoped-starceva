@@ -15,11 +15,11 @@ export function MentorshipSection() {
       downloads: [
         {
           href: `${BASE_PATH}/documents/mentors-2025-urgpu-mk.docx`,
-          text: "Скачать мастеркласс"
+          text: "Мастеркласс"
         },
         {
           href: `${BASE_PATH}/documents/award-letter-nastavnichestvo.pdf`,
-          text: "Скачать благодарственное письмо"
+          text: "Благодарственное письмо"
         }],
       photos: {
         basePath: 'mentors-2025-urgpu',

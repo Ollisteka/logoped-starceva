@@ -16,12 +16,12 @@ export function CompetitionsSection() {
       downloads: [
         {
           href: `https://xn--80aakcbevmvw9p.xn--p1ai/edu-07-2025-pb-67136/`,
-          text: "Перейти к работе",
+          text: "Работа на сайте педагогической академии",
           icon: 'link' as const
         },
         {
           href: `${BASE_PATH}/documents/formirovanie-kommunikativnyh-navykov/award-letter-03-08-2025-formirovanie-kommunikativnyh-navykov.pdf`,
-          text: "Скачать благодарственное письмо"
+          text: "Благодарственное письмо"
         }
       ]
     },
@@ -34,11 +34,11 @@ export function CompetitionsSection() {
       downloads: [
         {
           href: `${BASE_PATH}/documents/intellect/diploma.pdf`,
-          text: "Скачать диплом"
+          text: "Диплом"
         },
         {
           href: `${BASE_PATH}/documents/intellect/tech-map.docx`,
-          text: "Скачать технологическую карту"
+          text: "Технологическая карта"
         }
       ]
     },
@@ -50,7 +50,7 @@ export function CompetitionsSection() {
       downloads: [
         {
           href: `${BASE_PATH}/documents/podelka/podelka-diplom.pdf`,
-          text: "Скачать диплом участника и куратора"
+          text: "Диплом участника и куратора"
         }
       ],
       photos: {

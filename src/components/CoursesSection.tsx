@@ -62,7 +62,7 @@ export function CoursesSection() {
 
                 {course.certificate && (
                   <Link href={course.certificate}>
-                    Скачать сертификат
+                    Сертификат
                   </Link>
                 )}
               </div>

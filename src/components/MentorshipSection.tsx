@@ -4,6 +4,8 @@ import { useState } from "react";
 import { ImageGalleryModal } from "./SimpleModal";
 import { Badge } from "./SimpleBadge";
 import { BASE_PATH } from "../consts/paths";
+import { href } from "react-router-dom";
+import { NBSP } from "../consts/typography";
 
 export function MentorshipSection() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
@@ -33,11 +35,16 @@ export function MentorshipSection() {
     {
       title: "Кураторство студентов УрГПУ (ИСО)",
       period: "2025",
-      description: "Работа над проектом",
-      download: {
-        href: `${BASE_PATH}/documents/award-letter-nastavnichestvo.pdf`,
-        text: "Скачать благодарственное письмо"
-      },
+      description: `Провела мастеркласс для студентов УрГПУ по теме «Содержание работы учителя-логопеда с${NBSP}обучающимися с${NBSP}нарушением интеллекта»`,
+      downloads: [
+        {
+          href: `${BASE_PATH}/documents/mentors-2025-urgpu-mk.docx`,
+          text: "Скачать мастеркласс"
+        },
+        {
+          href: `${BASE_PATH}/documents/award-letter-nastavnichestvo.pdf`,
+          text: "Скачать благодарственное письмо"
+        }],
       photos: { basePath: 'mentors-2025-urgpu', images: ['1.jpg', '2.jpg', '3.jpg'] }
     }
   ];
@@ -62,10 +69,14 @@ export function MentorshipSection() {
                   </div>
                   <p className="text-gray-500 mb-4">{activity.description}</p>
 
-                  {activity.download && (
-                    <DownloadButton href={activity.download.href}>
-                      {activity.download.text || "Скачать"}
-                    </DownloadButton>
+                  {activity.downloads && (
+                    <div className="flex flex-col gap-2">
+                      {activity.downloads.map((download, index) => (
+                        <DownloadButton key={index} href={download.href}>
+                          {download.text || "Скачать"}
+                        </DownloadButton>
+                      ))}
+                    </div>
                   )}
 
                   {activity.photos && (

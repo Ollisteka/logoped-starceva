@@ -13,7 +13,7 @@ const formatHeading = (title: string): string => {
 
 export function MentorshipSection() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
-  const [currentGalleryImages, setCurrentGalleryImages] = useState<string[]>([]);
+  const [currentGalleryImages, setCurrentGalleryImages] = useState<{ src: string; alt: string }[]>([]);
 
   const handleNextImage = () => {
     if (selectedImageIndex !== null && currentGalleryImages.length > 0) {
@@ -30,8 +30,11 @@ export function MentorshipSection() {
   };
 
   const openGallery = (photos: typeof mentorshipActivities[number]['photos'], imageIndex: number = 0) => {
-    const fullPaths = photos.images.map(img => `${BASE_PATH}/photos/${photos.basePath}/${img.src}`);
-    setCurrentGalleryImages(fullPaths);
+    const imagesWithPaths = photos.images.map(img => ({
+      src: `${BASE_PATH}/photos/${photos.basePath}/${img.src}`,
+      alt: img.alt
+    }));
+    setCurrentGalleryImages(imagesWithPaths);
     setSelectedImageIndex(imageIndex);
   };
 

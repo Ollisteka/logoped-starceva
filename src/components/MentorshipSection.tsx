@@ -6,6 +6,11 @@ import { Badge } from "./SimpleBadge";
 import { BASE_PATH } from "../consts/paths";
 import { NBSP } from "../consts/typography";
 
+// Функция для форматирования заголовков в ID
+const formatHeading = (title: string): string => {
+  return title.replace(/\s+/g, '-').toLowerCase();
+};
+
 export function MentorshipSection() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [currentGalleryImages, setCurrentGalleryImages] = useState<string[]>([]);
@@ -86,18 +91,25 @@ export function MentorshipSection() {
                   )}
 
                   {activity.photos && (
-                    <div className="border-t border-gray-200 pt-6 mt-6">
-                      <h4 className="mb-4 text-sm font-medium text-gray-700">Фотографии</h4>
-                      <div className="flex flex-wrap gap-2 pb-2">
+                    <section className="border-t border-gray-200 pt-6 mt-6" aria-labelledby={`gallery-heading-${formatHeading(activity.title)}`}>
+                      <h4 id={`gallery-heading-${formatHeading(activity.title)}`} className="mb-4 text-sm font-medium text-gray-700">Фотографии</h4>
+                      <div 
+                        role="img" 
+                        aria-label={`Галерея фотографий: ${activity.title}`}
+                        className="flex flex-wrap gap-2 pb-2"
+                      >
                         {activity.photos.images.map((image, imgIndex) => (
                           <button
                             key={imgIndex}
                             onClick={() => openGallery(activity.photos, imgIndex)}
                             className="w-20 h-20 relative border-0 bg-transparent p-0 rounded-lg overflow-hidden cursor-pointer group"
+                            aria-label={`Открыть галерею, изображение ${imgIndex + 1} из ${activity.photos.images.length}`}
+                            aria-describedby={`image-${imgIndex}`}
                           >
                             <img
                               src={`${BASE_PATH}/photos/${activity.photos.basePath}/${image.src}`}
                               alt={image.alt}
+                              id={`image-${imgIndex}`}
                               className="w-full h-full object-cover transition-transform duration-200 ease-in-out group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-transparent flex items-center justify-center transition-colors duration-200 ease-in-out group-hover:bg-black/30">
@@ -122,7 +134,7 @@ export function MentorshipSection() {
                           </button>
                         ))}
                       </div>
-                    </div>
+                    </section>
                   )}
                 </div>
               ))}

@@ -39,7 +39,7 @@ export function PedkopilaSection() {
                 </div>
                 <p className="text-gray-500 mb-4">{material.description}</p>
                 {material.link && (
-                  <DownloadButton href={material.link} download>
+                  <DownloadButton href={material.link} icon="link">
                     Скачать
                   </DownloadButton>
                 )}

@@ -9,10 +9,15 @@ export function CompetitionsSection() {
     {
       title: `«Организация специальных условий, методы и${NBSP}приёмы работы обучения и${NBSP}воспитания детей с${NBSP}ОВЗ и${NBSP}с${NBSP}инвалидностью, с${NBSP}учётом целевых ориентиров ФАОП»`,
       year: "2025",
-      result: "Участник",
+      result: "1 место",
       description: `Работа «Формирование коммуникативных навыков у${NBSP}обучающихся с${NBSP}интеллектуальными нарушениями»`,
       level: "Всероссийский",
       downloads: [
+        {
+          href: `https://xn--80aakcbevmvw9p.xn--p1ai/edu-07-2025-pb-67136/`,
+          text: "Перейти к работе",
+          icon: 'link'
+        },
         {
           href: `${BASE_PATH}/documents/award-letter-03-08-2025-formirovanie-kommunikativnyh-navykov.pdf`,
           text: "Скачать благодарственное письмо"
@@ -67,7 +72,7 @@ export function CompetitionsSection() {
                 {competition.downloads && (
                   <div className="flex flex-col gap-2">
                     {competition.downloads.map((download, downloadIndex) => (
-                      <DownloadButton key={downloadIndex} href={download.href}>
+                      <DownloadButton key={downloadIndex} href={download.href} icon={download.icon}>
                         {download.text || "Скачать"}
                       </DownloadButton>
                     ))}

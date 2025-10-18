@@ -3,6 +3,7 @@ import { Badge } from "./SimpleBadge";
 import { Link } from "./Link";
 import { NBSP } from "../consts/typography";
 import { BASE_PATH } from "../consts/paths";
+import { PhotoGallery } from "./PhotoGallery";
 
 export function CompetitionsSection() {
   const competitions = [
@@ -40,6 +41,24 @@ export function CompetitionsSection() {
           text: "Скачать технологическую карту"
         }
       ]
+    },
+    {
+      title: `Творческий конкурс для детей с${NBSP}ограниченными возможностями здоровья «Радуга творчества»`, year: "2025",
+      result: "Лауреат I степени",
+      description: `Помогла ученику стать лауреатом конкурса в номинации «Поделка»`,
+      level: "Всероссийский",
+      downloads: [
+        {
+          href: `${BASE_PATH}/documents/podelka/podelka-diplom.pdf`,
+          text: "Скачать диплом участника и куратора"
+        }
+      ],
+      photos: {
+        basePath: 'podelka',
+        images: [
+          { src: 'podelka.jpg', alt: 'На зелёном листочке стоят четыре ёжика, сделанные из пластилина и шишек' }
+        ]
+      }
     }
   ];
 
@@ -77,6 +96,9 @@ export function CompetitionsSection() {
                       </Link>
                     ))}
                   </div>
+                )}
+                {competition.photos && (
+                  <PhotoGallery photos={competition.photos} title={competition.title} />
                 )}
               </div>
             ))}

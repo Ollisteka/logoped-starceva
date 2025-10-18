@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 import { Badge } from "./SimpleBadge";
 import { DownloadButton } from "./DownloadButton";
 import { NBSP } from "../consts/typography";
+import { BASE_PATH } from "../consts/paths";
 
 export function CompetitionsSection() {
   const competitions = [
@@ -11,10 +12,29 @@ export function CompetitionsSection() {
       result: "Участник",
       description: `Работа «Формирование коммуникативных навыков у${NBSP}обучающихся с${NBSP}интеллектуальными нарушениями»`,
       level: "Всероссийский",
-      download: {
-        href: `/documents/award-letter-03-08-2025-formirovanie-kommunikativnyh-navykov.pdf`,
-        text: "Скачать благодарственное письмо"
-      }
+      downloads: [
+        {
+          href: `${BASE_PATH}/documents/award-letter-03-08-2025-formirovanie-kommunikativnyh-navykov.pdf`,
+          text: "Скачать благодарственное письмо"
+        }
+      ]
+    },
+    {
+      title: 'Конкурс для педагогов «Интеллект»',
+      year: "2025",
+      result: "Победитель",
+      description: `Технологическая карта урока по теме «Понятия „один“, „много“», победила в${NBSP}номинации «Методические разработки»`,
+      level: "Всероссийский",
+      downloads: [
+        {
+          href: `${BASE_PATH}/documents/intellect/diploma.pdf`,
+          text: "Скачать диплом"
+        },
+        {
+          href: `${BASE_PATH}/documents/intellect/tech-map.docx`,
+          text: "Скачать технологическую карту"
+        }
+      ]
     }
   ];
 
@@ -44,10 +64,14 @@ export function CompetitionsSection() {
                   </div>
                 </div>
                 <p className="text-gray-500 mb-4">{competition.description}</p>
-                {competition.download && (
-                  <DownloadButton href={competition.download.href}>
-                    {competition.download.text || "Скачать"}
-                  </DownloadButton>
+                {competition.downloads && (
+                  <div className="flex flex-col gap-2">
+                    {competition.downloads.map((download, downloadIndex) => (
+                      <DownloadButton key={downloadIndex} href={download.href}>
+                        {download.text || "Скачать"}
+                      </DownloadButton>
+                    ))}
+                  </div>
                 )}
               </div>
             ))}

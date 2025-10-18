@@ -1,4 +1,4 @@
-import { DownloadButton } from "./DownloadButton";
+import { Link } from "./Link";
 import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 import { useState } from "react";
 import { ImageGalleryModal } from "./SimpleModal";
@@ -86,9 +86,9 @@ export function MentorshipSection() {
                   {activity.downloads && (
                     <div className="flex flex-col gap-2">
                       {activity.downloads.map((download, index) => (
-                        <DownloadButton key={index} href={download.href}>
-                          {download.text || "Скачать"}
-                        </DownloadButton>
+                      <Link key={index} href={download.href}>
+                        {download.text || "Скачать"}
+                      </Link>
                       ))}
                     </div>
                   )}

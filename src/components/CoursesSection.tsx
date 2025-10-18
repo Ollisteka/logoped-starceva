@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 import { Badge } from "./SimpleBadge";
-import { DownloadButton } from "./DownloadButton";
+import { Link } from "./Link";
 import { NBSP } from "../consts/typography";
 
 export function CoursesSection() {
@@ -61,9 +61,9 @@ export function CoursesSection() {
                 </div>
 
                 {course.certificate && (
-                  <DownloadButton href={course.certificate}>
+                  <Link href={course.certificate}>
                     Скачать сертификат
-                  </DownloadButton>
+                  </Link>
                 )}
               </div>
             ))}

@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 import { Badge } from "./SimpleBadge";
-import { DownloadButton } from "./DownloadButton";
+import { Link } from "./Link";
 import { NBSP } from "../consts/typography";
 import { BASE_PATH } from "../consts/paths";
 
@@ -72,9 +72,9 @@ export function CompetitionsSection() {
                 {competition.downloads && (
                   <div className="flex flex-col gap-2">
                     {competition.downloads.map((download, downloadIndex) => (
-                      <DownloadButton key={downloadIndex} href={download.href} icon={download.icon}>
+                      <Link key={downloadIndex} href={download.href} icon={download.icon || 'download'}>
                         {download.text || "Скачать"}
-                      </DownloadButton>
+                      </Link>
                     ))}
                   </div>
                 )}

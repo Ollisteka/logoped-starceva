@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface DownloadButtonProps {
+interface LinkProps {
   href: string;
   children: React.ReactNode;
   className?: string;
@@ -8,13 +8,13 @@ interface DownloadButtonProps {
   icon?: 'download' | 'link',
 }
 
-export function DownloadButton({
+export function Link({
   href,
   children,
   className = '',
   icon = 'download',
   download = false
-}: DownloadButtonProps) {
+}: LinkProps) {
   return (
     <a
       href={href}

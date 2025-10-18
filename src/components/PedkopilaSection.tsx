@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
 import { Badge } from "./SimpleBadge";
-import { DownloadButton } from "./DownloadButton";
+import { Link } from "./Link";
 import { NBSP } from "../consts/typography";
 import { BASE_PATH } from "../consts/paths";
 
@@ -39,9 +39,9 @@ export function PedkopilaSection() {
                 </div>
                 <p className="text-gray-500 mb-4">{material.description}</p>
                 {material.link && (
-                  <DownloadButton href={material.link} icon="link">
+                  <Link href={material.link} icon="link">
                     Скачать
-                  </DownloadButton>
+                  </Link>
                 )}
               </div>
             ))}

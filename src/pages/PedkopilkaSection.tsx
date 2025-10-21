@@ -1,10 +1,10 @@
-import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
-import { Badge } from "./SimpleBadge";
-import { LinkList } from "./LinkList";
+import { Card, CardContent, CardHeader, CardTitle } from "../components/SimpleCard";
+import { Badge } from "../components/SimpleBadge";
+import { LinkList } from "../components/LinkList";
 import { NBSP } from "../consts/typography";
 import { BASE_PATH } from "../consts/paths";
 
-export function PedkopilaSection() {
+export function PedkopilkaSection() {
   const materials = [
     {
       title: "Логопедическая диагностика обучающихся 1 класса",

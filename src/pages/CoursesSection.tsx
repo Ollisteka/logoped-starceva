@@ -1,6 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
-import { Badge } from "./SimpleBadge";
-import { Link } from "./Link";
+import { Card, CardContent, CardHeader, CardTitle } from "../components/SimpleCard";
+import { Badge } from "../components/SimpleBadge";
+import { Link } from "../components/Link";
 import { NBSP } from "../consts/typography";
 
 export function CoursesSection() {

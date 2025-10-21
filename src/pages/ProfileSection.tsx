@@ -1,5 +1,5 @@
-import { Card, CardContent } from "./SimpleCard";
-import { Avatar, AvatarImage, AvatarFallback } from "./SimpleAvatar";
+import { Card, CardContent } from "../components/SimpleCard";
+import { Avatar, AvatarImage, AvatarFallback } from "../components/SimpleAvatar";
 import { NBSP } from "../consts/typography";
 
 export function ProfileSection() {

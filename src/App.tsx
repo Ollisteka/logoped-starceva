@@ -6,13 +6,15 @@ import {
   SidebarContent, 
   SidebarToggle 
 } from "./components/SimpleSidebar";
-import { ProfileSection } from "./components/ProfileSection";
-import { PublicationsSection } from "./components/PublicationsSection";
-import { PedkopilaSection } from "./components/PedkopilaSection";
-import { MentorshipSection } from "./components/MentorshipSection";
-import { SportsSection } from "./components/SportsSection";
-import { CompetitionsSection } from "./components/CompetitionsSection";
-import { CoursesSection } from "./components/CoursesSection";
+import { 
+  ProfileSection,
+  PublicationsSection,
+  PedkopilkaSection,
+  MentorshipSection,
+  SportsSection,
+  CompetitionsSection,
+  CoursesSection
+} from "./pages";
 
 export default function App() {
   return (
@@ -57,7 +59,7 @@ export default function App() {
               </SidebarContent>
 
               <SidebarContent value="pedkopilka">
-                <PedkopilaSection />
+                <PedkopilkaSection />
               </SidebarContent>
 
               <SidebarContent value="mentorship">

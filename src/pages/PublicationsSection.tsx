@@ -1,6 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
-import { Badge } from "./SimpleBadge";
-import { DownloadLink, LinkList } from "./LinkList";
+import { Card, CardContent, CardHeader, CardTitle } from "../components/SimpleCard";
+import { Badge } from "../components/SimpleBadge";
+import { DownloadLink, LinkList } from "../components/LinkList";
 import { BASE_PATH } from "../consts/paths";
 import { NBSP } from "../consts/typography";
 

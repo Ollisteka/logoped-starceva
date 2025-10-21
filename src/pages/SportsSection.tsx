@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
-import { Badge } from "./SimpleBadge";
+import { Card, CardContent, CardHeader, CardTitle } from "../components/SimpleCard";
+import { Badge } from "../components/SimpleBadge";
 
 export function SportsSection() {
   const sportsEvents = [

@@ -39,13 +39,13 @@ export function SportsSection() {
         <Article
           key={index}
           title={event.title}
+          year={event.date}
           badges={[
             { text: event.category, variant: 'outline' },
             { text: event.role, variant: 'secondary' }
           ]}
+          description={event.achievement}
         >
-          <p className="text-sm text-gray-500 mb-2">{event.date}</p>
-          <p className="text-primary/80">{event.achievement}</p>
         </Article>
       ))}
     </BasePage>

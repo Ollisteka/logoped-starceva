@@ -21,7 +21,7 @@ export function Link({
       target="_blank"
       rel="noopener noreferrer"
       download={download}
-      className={`inline-flex cursor-pointer items-center gap-2 text-sm text-primary hover:text-primary/80 hover:underline transition-colors ${className}`}
+      className={`inline-flex cursor-pointer items-center gap-2 text-indigo-600 hover:text-indigo-600/70 hover:underline transition-colors ${className}`}
     >
       {icon === 'download' ? (
         <svg

@@ -19,7 +19,7 @@ import {
 export default function App() {
   return (
     <Router basename="/logoped-starceva">
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
+      <div className="min-h-screen bg-gradient-to-br from-sky-100 to-indigo-200">
         <Sidebar defaultSection="profile" className="flex">
         <div className="flex flex-1">
           {/* Sidebar Navigation */}

@@ -25,23 +25,21 @@ export function Article({
 }: ArticleProps) {
   return (
     <article className="p-4 rounded-lg border border-border bg-card">
-      <header className="flex items-start justify-between gap-4 mb-3">
-        <div className="flex-1">
-          <h3 className="mb-2">{title}</h3>
-          {subtitle && <p className="text-gray-500 mb-2">{subtitle}</p>}
-          {badges.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-2">
-              {badges.map((badge, index) => (
-                <Badge key={index} variant={badge.variant || 'default'}>
-                  {badge.text}
-                </Badge>
-              ))}
-            </div>
-          )}
-        </div>
-        {year && <Badge variant="secondary">{year}</Badge>}
+      <header className="flex flex-col items-start justify-between gap-2 mb-3">
+        <h3 className="text-base font-semibold text-gray-900">{title}</h3>
+        {subtitle && <p className="text-gray-500">{subtitle}</p>}
+        {(badges.length > 0 || year ) && (
+          <div className="flex flex-wrap gap-2">
+            {year && <Badge variant="secondary">{year}</Badge>}
+            {badges.map((badge, index) => (
+              <Badge key={index} variant={badge.variant || 'default'}>
+                {badge.text}
+              </Badge>
+            ))}
+          </div>
+        )}
       </header>
-      {description && <p className="text-gray-500 mb-4">{description}</p>}
+      {description && <p className="mb-4">{description}</p>}
       {children}
     </article>
   );

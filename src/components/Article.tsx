@@ -24,7 +24,7 @@ export function Article({
   children
 }: ArticleProps) {
   return (
-    <article className="p-4 rounded-lg border border-border bg-card">
+    <article className="p-4 rounded-lg border border-gray-300 shadow-md bg-card">
       <header className="flex flex-col items-start justify-between gap-2 mb-3">
         <h3 className="text-base font-semibold text-gray-900">{title}</h3>
         {subtitle && <p className="text-gray-500">{subtitle}</p>}

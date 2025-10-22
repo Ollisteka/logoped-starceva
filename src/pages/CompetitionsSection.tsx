@@ -1,5 +1,5 @@
 import { BasePage } from "../components/BasePage";
-import { Badge } from "../components/SimpleBadge";
+import { Article } from "../components/Article";
 import { LinkList } from "../components/LinkList";
 import { NBSP } from "../consts/typography";
 import { BASE_PATH } from "../consts/paths";
@@ -65,30 +65,23 @@ export function CompetitionsSection() {
   return (
     <BasePage heading="Конкурсы и достижения">
       {competitions.map((competition, index) => (
-        <div
+        <Article
           key={index}
-          className="p-5 rounded-lg border border-border bg-card"
+          title={competition.title}
+          year={competition.year}
+          badges={[
+            { text: competition.level, variant: 'outline' },
+            { text: competition.result, variant: 'default' }
+          ]}
+          description={competition.description}
         >
-          <div className="flex items-start justify-between gap-4 mb-3">
-            <div className="flex-1">
-              <h3 className="mb-2">{competition.title}</h3>
-              <div className="flex flex-wrap gap-2 mb-2">
-                <Badge variant="secondary">{competition.year}</Badge>
-                {competition.level && <Badge variant="outline">{competition.level}</Badge>}
-                <Badge>
-                  {competition.result}
-                </Badge>
-              </div>
-            </div>
-          </div>
-          <p className="text-gray-500 mb-4">{competition.description}</p>
           {competition.downloads && (
             <LinkList downloads={competition.downloads} />
           )}
           {competition.photos && (
             <PhotoGallery photos={competition.photos} title={competition.title} />
           )}
-        </div>
+        </Article>
       ))}
     </BasePage>
   );

@@ -1,5 +1,5 @@
 import { BasePage } from "../components/BasePage";
-import { Badge } from "../components/SimpleBadge";
+import { Article } from "../components/Article";
 import { DownloadLink, LinkList } from "../components/LinkList";
 import { BASE_PATH } from "../consts/paths";
 import { NBSP } from "../consts/typography";
@@ -32,20 +32,17 @@ export function PublicationsSection() {
   return (
     <BasePage heading="Публикации">
       {publications.map((pub, index) => (
-        <div 
-          key={index} 
-          className="p-4 rounded-lg border border-border bg-card"
+        <Article
+          key={index}
+          title={pub.title}
+          year={pub.year}
+          badges={[{ text: pub.type, variant: 'outline' }]}
+          description={pub.description}
         >
-          <div className="flex items-start justify-between gap-4 mb-2">
-            <h3 className="flex-1">{pub.title}</h3>
-            <Badge variant="secondary">{pub.year}</Badge>
-          </div>
-          <Badge className="mb-2" variant="outline">{pub.type}</Badge>
-          <p className="text-gray-500 mb-4">{pub.description}</p>
           {pub.downloads && (
             <LinkList downloads={pub.downloads} />
           )}
-        </div>
+        </Article>
       ))}
     </BasePage>
   );

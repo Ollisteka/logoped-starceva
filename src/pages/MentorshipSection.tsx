@@ -1,5 +1,5 @@
 import { BasePage } from "../components/BasePage";
-import { Badge } from "../components/SimpleBadge";
+import { Article } from "../components/Article";
 import { LinkList } from "../components/LinkList";
 import { PhotoGallery } from "../components/PhotoGallery";
 import { BASE_PATH } from "../consts/paths";
@@ -35,16 +35,12 @@ export function MentorshipSection() {
   return (
     <BasePage heading="Наставничество">
       {mentorshipActivities.map((activity, index) => (
-        <div
+        <Article
           key={index}
-          className="p-5 rounded-lg border border-border bg-card"
+          title={activity.title}
+          year={activity.period}
+          description={activity.description}
         >
-          <div className="flex items-start justify-between gap-4 mb-3">
-            <h3 className="flex-1">{activity.title}</h3>
-            <Badge variant="secondary">{activity.period}</Badge>
-          </div>
-          <p className="text-gray-500 mb-4">{activity.description}</p>
-
           {activity.downloads && (
             <LinkList downloads={activity.downloads} />
           )}
@@ -55,7 +51,7 @@ export function MentorshipSection() {
               title={activity.title} 
             />
           )}
-        </div>
+        </Article>
       ))}
     </BasePage>
   );

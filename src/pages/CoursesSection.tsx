@@ -1,5 +1,5 @@
 import { BasePage } from "../components/BasePage";
-import { Badge } from "../components/SimpleBadge";
+import { Article } from "../components/Article";
 import { Link } from "../components/Link";
 import { NBSP } from "../consts/typography";
 
@@ -36,30 +36,22 @@ export function CoursesSection() {
   return (
     <BasePage heading="Курсы повышения квалификации">
       {courses.map((course, index) => (
-        <div
+        <Article
           key={index}
-          className="p-5 rounded-lg border border-border bg-card"
+          title={course.title}
+          subtitle={course.institution}
+          year={course.year}
+          badges={[
+            { text: course.hours, variant: 'outline' },
+            { text: `✓ ${course.status}`, variant: 'success' }
+          ]}
         >
-          <div className="flex items-start justify-between gap-4 mb-3">
-            <h3 className="flex-1">{course.title}</h3>
-            <Badge variant="secondary">{course.year}</Badge>
-          </div>
-
-          <p className="text-gray-500 mb-2">{course.institution}</p>
-
-          <div className="flex gap-2 mb-4">
-            <Badge variant="outline">{course.hours}</Badge>
-            <Badge variant="success">
-              ✓ {course.status}
-            </Badge>
-          </div>
-
           {course.certificate && (
             <Link href={course.certificate}>
               Сертификат
             </Link>
           )}
-        </div>
+        </Article>
       ))}
     </BasePage>
   );

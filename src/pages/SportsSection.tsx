@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "../components/SimpleCard";
+import { BasePage } from "../components/BasePage";
 import { Badge } from "../components/SimpleBadge";
 
 export function SportsSection() {
@@ -34,32 +34,25 @@ export function SportsSection() {
   ];
 
   return (
-    <div className="space-y-6">
-      <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
-        <CardHeader className="pb-4">
-          <CardTitle>Спортивные мероприятия</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-4 md:grid-cols-2">
-            {sportsEvents.map((event, index) => (
-              <div 
-                key={index} 
-                className="p-4 rounded-lg border border-border bg-card"
-              >
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <h3 className="flex-1">{event.title}</h3>
-                </div>
-                <div className="flex gap-2 mb-3">
-                  <Badge variant="outline">{event.category}</Badge>
-                  <Badge variant="secondary">{event.role}</Badge>
-                </div>
-                <p className="text-sm text-gray-500 mb-2">{event.date}</p>
-                <p className="text-primary/80">{event.achievement}</p>
-              </div>
-            ))}
+    <BasePage heading="Спортивные мероприятия">
+      <div className="grid gap-4 md:grid-cols-2">
+        {sportsEvents.map((event, index) => (
+          <div 
+            key={index} 
+            className="p-4 rounded-lg border border-border bg-card"
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <h3 className="flex-1">{event.title}</h3>
+            </div>
+            <div className="flex gap-2 mb-3">
+              <Badge variant="outline">{event.category}</Badge>
+              <Badge variant="secondary">{event.role}</Badge>
+            </div>
+            <p className="text-sm text-gray-500 mb-2">{event.date}</p>
+            <p className="text-primary/80">{event.achievement}</p>
           </div>
-        </CardContent>
-      </Card>
-    </div>
+        ))}
+      </div>
+    </BasePage>
   );
 }

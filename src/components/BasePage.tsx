@@ -1,0 +1,26 @@
+import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
+
+interface BasePageProps {
+  heading: string;
+  children: React.ReactNode;
+}
+
+/**
+ * Базовый компонент страницы с унифицированной структурой карточки и заголовка
+ */
+export function BasePage({ heading, children }: BasePageProps) {
+  return (
+    <div className="space-y-6">
+      <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
+        <CardHeader className="pb-4">
+          <CardTitle>{heading}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            {children}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}

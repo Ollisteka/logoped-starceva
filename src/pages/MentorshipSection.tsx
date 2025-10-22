@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "../components/SimpleCard";
+import { BasePage } from "../components/BasePage";
 import { Badge } from "../components/SimpleBadge";
 import { LinkList } from "../components/LinkList";
 import { PhotoGallery } from "../components/PhotoGallery";
@@ -33,41 +33,30 @@ export function MentorshipSection() {
   ];
 
   return (
-    <>
-      <div className="space-y-6">
-        <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
-          <CardHeader className="pb-4">
-            <CardTitle>Наставничество</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-6">
-              {mentorshipActivities.map((activity, index) => (
-                <div
-                  key={index}
-                  className="p-5 rounded-lg border border-border bg-card"
-                >
-                  <div className="flex items-start justify-between gap-4 mb-3">
-                    <h3 className="flex-1">{activity.title}</h3>
-                    <Badge variant="secondary">{activity.period}</Badge>
-                  </div>
-                  <p className="text-gray-500 mb-4">{activity.description}</p>
+    <BasePage heading="Наставничество">
+      {mentorshipActivities.map((activity, index) => (
+        <div
+          key={index}
+          className="p-5 rounded-lg border border-border bg-card"
+        >
+          <div className="flex items-start justify-between gap-4 mb-3">
+            <h3 className="flex-1">{activity.title}</h3>
+            <Badge variant="secondary">{activity.period}</Badge>
+          </div>
+          <p className="text-gray-500 mb-4">{activity.description}</p>
 
-                  {activity.downloads && (
-                    <LinkList downloads={activity.downloads} />
-                  )}
+          {activity.downloads && (
+            <LinkList downloads={activity.downloads} />
+          )}
 
-                  {activity.photos && (
-                    <PhotoGallery 
-                      photos={activity.photos} 
-                      title={activity.title} 
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    </>
+          {activity.photos && (
+            <PhotoGallery 
+              photos={activity.photos} 
+              title={activity.title} 
+            />
+          )}
+        </div>
+      ))}
+    </BasePage>
   );
 }

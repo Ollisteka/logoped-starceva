@@ -2,6 +2,7 @@ import { BasePage } from "../components/BasePage";
 import { Article } from "../components/Article";
 import { Link } from "../components/Link";
 import { NBSP } from "../consts/typography";
+import { BASE_PATH } from "../consts/paths";
 
 export function CoursesSection() {
   const courses = [
@@ -16,7 +17,7 @@ export function CoursesSection() {
         "Адаптированные образовательные программы",
         "Индивидуальный образовательный маршрут"
       ],
-      certificate: `/documents/advanced-training-obzr.pdf`
+      certificate: `${BASE_PATH}/documents/advanced-training-obzr.pdf`
     },
     {
       title: `Технологии логопедической работы с${NBSP}детьми с${NBSP}расстройством аутистического спектра (РАС)`,
@@ -29,7 +30,7 @@ export function CoursesSection() {
         "Альтернативная коммуникация",
         "Сенсорная интеграция в логопедии"
       ],
-      certificate: `/documents/advanced-training-ras-logoped.pdf`
+      certificate: `${BASE_PATH}/documents/advanced-training-ras-logoped.pdf`
     }
   ];
 

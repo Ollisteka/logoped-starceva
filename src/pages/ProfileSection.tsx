@@ -1,5 +1,6 @@
 import { BasePage } from "../components/BasePage";
 import { Avatar, AvatarImage, AvatarFallback } from "../components/SimpleAvatar";
+import { BASE_PATH } from "../consts/paths";
 import { NBSP } from "../consts/typography";
 
 export function ProfileSection() {
@@ -29,7 +30,7 @@ export function ProfileSection() {
           <div className="flex-shrink-0">
             <Avatar className="w-40 h-40 border-4 border-gray-200">
               <AvatarImage 
-                src="https://yastatic.net/naydex/yandex-search/dnu6fe222/1ba0e0YXJkDm/Ln1TmJxAWzhxG5ThWEf68zn-qr9kq255UO28lMqBGvV879_PhCf4g-iCfe4GeNyg8pYyw8Z1hantBVT35tfS1cocwUpasplatwkmY8qVSufJ_ruqEDoebnNA" 
+                src={`${BASE_PATH}/photos/avatar.jpg`} 
                 alt="Старцева Светлана Александровна"
               />
               <AvatarFallback>СС</AvatarFallback>

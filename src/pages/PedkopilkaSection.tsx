@@ -17,6 +17,27 @@ export function PedkopilkaSection() {
           text: "Презентация с упражнениями"
         }
       ]
+    },
+    {
+      title: `Звук и буква А`,
+      category: "Презентации",
+      year: "2025",
+      description: `Презентация предназначена для знакомства ребёнка с${NBSP}буквой «А» и${NBSP}формирования познавательных, коммуникативных и${NBSP}регулятивных умений через игровые задания и${NBSP}общение с${NBSP}учителем.`,
+      downloads: [
+        {
+          href: getDocumentPath('a-letter/a-letter-presentation.pptx'),
+          text: "Презентация с упражнениями"
+        },
+        {
+          href: getDocumentPath('a-letter/a-letter-svidetelstvo.jpg'),
+          text: "Свидетельство о размещении материала"
+        },
+        {
+          href: 'https://infourok.ru/prezentaciya-na-temu-zvuk-i-bukva-a-7946372.html',
+          text: "Публикация на сайте Инфоурок",
+          icon: 'link' as const
+        }
+      ]
     }
   ];
 

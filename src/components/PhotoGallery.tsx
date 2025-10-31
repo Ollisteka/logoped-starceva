@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import { ImageGalleryModal } from "./SimpleModal";
-import { BASE_PATH } from "../consts/paths";
+import { getPhotoPath } from "../helpers/urlBuilders";
 
 // Функция для форматирования заголовков в ID
 const formatHeading = (title: string): string => {
@@ -44,7 +44,7 @@ export function PhotoGallery({ photos, title, className = "" }: PhotoGalleryProp
 
   const openGallery = (imageIndex: number = 0) => {
     const imagesWithPaths = photos.images.map(img => ({
-      src: `${BASE_PATH}/photos/${photos.basePath}/${img.src}`,
+      src: getPhotoPath(`${photos.basePath}/${img.src}`),
       alt: img.alt
     }));
     setCurrentGalleryImages(imagesWithPaths);
@@ -74,7 +74,7 @@ export function PhotoGallery({ photos, title, className = "" }: PhotoGalleryProp
               aria-describedby={`image-${imgIndex}`}
             >
               <img
-                src={`${BASE_PATH}/photos/${photos.basePath}/${image.src}`}
+                src={getPhotoPath(`${photos.basePath}/${image.src}`)}
                 alt={image.alt}
                 id={`image-${imgIndex}`}
                 className="w-full h-full object-cover transition-transform duration-200 ease-in-out group-hover:scale-105"

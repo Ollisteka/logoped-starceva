@@ -2,7 +2,7 @@ import { BasePage } from "../components/BasePage";
 import { Article } from "../components/Article";
 import { LinkList } from "../components/LinkList";
 import { PhotoGallery } from "../components/PhotoGallery";
-import { BASE_PATH } from "../consts/paths";
+import { getDocumentPath } from "../helpers/urlBuilders";
 import { NBSP } from "../consts/typography";
 
 export function MentorshipSection() {
@@ -14,11 +14,11 @@ export function MentorshipSection() {
       description: `Провела мастеркласс для студентов УрГПУ по теме «Содержание работы учителя-логопеда с${NBSP}обучающимися с${NBSP}нарушением интеллекта»`,
       downloads: [
         {
-          href: `${BASE_PATH}/documents/mentors-2025-urgpu-mk.docx`,
+          href: getDocumentPath('mentors-2025-urgpu-mk.docx'),
           text: "Мастеркласс"
         },
         {
-          href: `${BASE_PATH}/documents/award-letter-nastavnichestvo.pdf`,
+          href: getDocumentPath('award-letter-nastavnichestvo.pdf'),
           text: "Благодарственное письмо"
         }],
       photos: {

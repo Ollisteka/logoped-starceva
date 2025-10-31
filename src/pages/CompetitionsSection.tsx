@@ -2,7 +2,7 @@ import { BasePage } from "../components/BasePage";
 import { Article } from "../components/Article";
 import { LinkList } from "../components/LinkList";
 import { NBSP } from "../consts/typography";
-import { BASE_PATH } from "../consts/paths";
+import { getDocumentPath } from "../helpers/urlBuilders";
 import { PhotoGallery } from "../components/PhotoGallery";
 
 export function CompetitionsSection() {
@@ -20,7 +20,7 @@ export function CompetitionsSection() {
           icon: 'link' as const
         },
         {
-          href: `${BASE_PATH}/documents/formirovanie-kommunikativnyh-navykov/award-letter-03-08-2025-formirovanie-kommunikativnyh-navykov.pdf`,
+          href: getDocumentPath('formirovanie-kommunikativnyh-navykov/award-letter-03-08-2025-formirovanie-kommunikativnyh-navykov.pdf'),
           text: "Благодарственное письмо"
         }
       ]
@@ -33,11 +33,11 @@ export function CompetitionsSection() {
       level: "Всероссийский",
       downloads: [
         {
-          href: `${BASE_PATH}/documents/intellect/diploma.pdf`,
+          href: getDocumentPath('intellect/diploma.pdf'),
           text: "Диплом"
         },
         {
-          href: `${BASE_PATH}/documents/intellect/tech-map.docx`,
+          href: getDocumentPath('intellect/tech-map.docx'),
           text: "Технологическая карта"
         }
       ]
@@ -49,7 +49,7 @@ export function CompetitionsSection() {
       level: "Всероссийский",
       downloads: [
         {
-          href: `${BASE_PATH}/documents/podelka/podelka-diplom.pdf`,
+          href: getDocumentPath('podelka/podelka-diplom.pdf'),
           text: "Диплом участника и куратора"
         }
       ],

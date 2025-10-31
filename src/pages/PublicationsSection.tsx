@@ -1,7 +1,7 @@
 import { BasePage } from "../components/BasePage";
 import { Article } from "../components/Article";
 import { DownloadLink, LinkList } from "../components/LinkList";
-import { BASE_PATH } from "../consts/paths";
+import { getDocumentPath } from "../helpers/urlBuilders";
 import { NBSP } from "../consts/typography";
 
 export function PublicationsSection() {
@@ -18,11 +18,11 @@ export function PublicationsSection() {
           icon: 'link'
         },
         {
-          href: `${BASE_PATH}/documents/sbornik_18_july_2025.pdf`,
+          href: getDocumentPath('sbornik_18_july_2025.pdf'),
           text: "Сборник учебно-методических материалов"
         },
         {
-          href: `${BASE_PATH}/documents/formirovanie-kommunikativnyh-navykov/svidetelstvo.pdf`,
+          href: getDocumentPath('formirovanie-kommunikativnyh-navykov/svidetelstvo.pdf'),
           text: `Свидетельство о публикации в СМИ`
         }
       ] as DownloadLink[]

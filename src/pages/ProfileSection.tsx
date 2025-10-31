@@ -1,6 +1,6 @@
 import { BasePage } from "../components/BasePage";
 import { Avatar, AvatarImage, AvatarFallback } from "../components/SimpleAvatar";
-import { BASE_PATH } from "../consts/paths";
+import { getPhotoPath } from "../helpers/urlBuilders";
 import { NBSP } from "../consts/typography";
 
 export function ProfileSection() {
@@ -30,7 +30,7 @@ export function ProfileSection() {
           <div className="flex-shrink-0">
             <Avatar className="w-40 h-40 border-4 border-gray-200">
               <AvatarImage 
-                src={`${BASE_PATH}/photos/avatar.jpg`} 
+                src={getPhotoPath('avatar.jpg')} 
                 alt="Старцева Светлана Александровна"
               />
               <AvatarFallback>СС</AvatarFallback>

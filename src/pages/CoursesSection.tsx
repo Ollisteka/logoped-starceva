@@ -31,6 +31,18 @@ export function CoursesSection() {
         "Сенсорная интеграция в логопедии"
       ],
       certificate: getDocumentPath('advanced-training-ras-logoped.pdf')
+    },
+    {
+      title: `Оказание первой помощи в${NBSP}образовательной организации`,
+      institution: "ООО «УчиЛаб»",
+      hours: `36${NBSP}часов`,
+      year: "2025",
+      status: "Завершен",
+      skills: [
+        "Нормативно-правовые аспекты оказания первой помощи",
+        "Оказание первой помощи при различных несчастных случаях"
+      ],
+      certificate: getDocumentPath('first-aid-certificate.pdf')
     }
   ];
 

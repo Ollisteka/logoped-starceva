@@ -1,78 +1,84 @@
-import { BasePage } from "../components/BasePage";
-import { Article } from "../components/Article";
-import { LinkList } from "../components/LinkList";
-import { NBSP } from "../consts/typography";
-import { getDocumentPath } from "../helpers/urlBuilders";
-import { PhotoGallery } from "../components/PhotoGallery";
+import { Article } from '../components/Article';
+import { BasePage } from '../components/BasePage';
+import { LinkList } from '../components/LinkList';
+import { PhotoGallery } from '../components/PhotoGallery';
+import { NBSP } from '../consts/typography';
+import { getDocumentPath } from '../helpers/urlBuilders';
 
 export function CompetitionsSection() {
   const competitions = [
     {
       title: `«Организация специальных условий, методы и${NBSP}приёмы работы обучения и${NBSP}воспитания детей с${NBSP}ОВЗ и${NBSP}с${NBSP}инвалидностью, с${NBSP}учётом целевых ориентиров ФАОП»`,
-      year: "2025",
-      result: "1 место",
+      year: '2025',
+      result: '1 место',
       description: `Работа «Формирование коммуникативных навыков у${NBSP}обучающихся с${NBSP}интеллектуальными нарушениями»`,
-      level: "Всероссийский",
+      level: 'Всероссийский',
       downloads: [
         {
           href: `https://xn--80aakcbevmvw9p.xn--p1ai/edu-07-2025-pb-67136/`,
-          text: "Работа на сайте педагогической академии",
-          icon: 'link' as const
+          text: 'Работа на сайте педагогической академии',
+          icon: 'link' as const,
         },
         {
-          href: getDocumentPath('formirovanie-kommunikativnyh-navykov/award-letter-03-08-2025-formirovanie-kommunikativnyh-navykov.pdf'),
-          text: "Благодарственное письмо"
-        }
-      ]
+          href: getDocumentPath(
+            'formirovanie-kommunikativnyh-navykov/award-letter-03-08-2025-formirovanie-kommunikativnyh-navykov.pdf'
+          ),
+          text: 'Благодарственное письмо',
+        },
+      ],
     },
     {
       title: 'Конкурс для педагогов «Интеллект»',
-      year: "2025",
-      result: "Победитель",
+      year: '2025',
+      result: 'Победитель',
       description: `Технологическая карта урока по теме «Понятия „один", „много"», победила в${NBSP}номинации «Методические разработки»`,
-      level: "Всероссийский",
+      level: 'Всероссийский',
       downloads: [
         {
           href: getDocumentPath('intellect/diploma.pdf'),
-          text: "Диплом"
+          text: 'Диплом',
         },
         {
           href: getDocumentPath('intellect/tech-map.docx'),
-          text: "Технологическая карта"
-        }
-      ]
+          text: 'Технологическая карта',
+        },
+      ],
     },
     {
-      title: `Творческий конкурс для детей с${NBSP}ограниченными возможностями здоровья «Радуга творчества»`, year: "2025",
-      result: "Лауреат I степени",
+      title: `Творческий конкурс для детей с${NBSP}ограниченными возможностями здоровья «Радуга творчества»`,
+      year: '2025',
+      result: 'Лауреат I степени',
       description: `Помогла ученику стать лауреатом конкурса в${NBSP}номинации «Поделка»`,
-      level: "Всероссийский",
+      level: 'Всероссийский',
       downloads: [
         {
           href: getDocumentPath('podelka/podelka-diplom.pdf'),
-          text: "Диплом участника и куратора"
-        }
+          text: 'Диплом участника и куратора',
+        },
       ],
       photos: {
         basePath: 'podelka',
         images: [
-          { src: 'podelka.jpg', alt: 'На зелёном листочке стоят четыре ёжика, сделанные из пластилина и шишек' }
-        ]
-      }
+          {
+            src: 'podelka.jpg',
+            alt: 'На зелёном листочке стоят четыре ёжика, сделанные из пластилина и шишек',
+          },
+        ],
+      },
     },
     {
       title: 'Викторина «Безопасность детей в летний период»',
-      year: "2025",
-      result: "Участник",
+      year: '2025',
+      result: 'Участник',
       description: `Викторина напоминает о правилах безопасного поведения летом`,
-      level: "Всероссийский",
+      level: 'Всероссийский',
       downloads: [
         {
           href: getDocumentPath('childSafetyQuiz.pdf'),
-          text: "Грамота"
-        }
-      ]
-    }
+          text: 'Грамота',
+        },
+      ],
+    },
   ];
 
   return (
@@ -84,16 +90,12 @@ export function CompetitionsSection() {
           year={competition.year}
           badges={[
             { text: competition.level, variant: 'outline' },
-            { text: competition.result, variant: 'default' }
+            { text: competition.result, variant: 'default' },
           ]}
           description={competition.description}
         >
-          {competition.downloads && (
-            <LinkList downloads={competition.downloads} />
-          )}
-          {competition.photos && (
-            <PhotoGallery photos={competition.photos} title={competition.title} />
-          )}
+          {competition.downloads && <LinkList downloads={competition.downloads} />}
+          {competition.photos && <PhotoGallery photos={competition.photos} title={competition.title} />}
         </Article>
       ))}
     </BasePage>

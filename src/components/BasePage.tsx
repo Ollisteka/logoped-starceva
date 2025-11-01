@@ -1,8 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle } from "./SimpleCard";
+import { Card, CardContent, CardHeader, CardTitle } from './SimpleCard';
 
 interface BasePageProps {
-  heading: string;
   children: React.ReactNode;
+  heading: string;
 }
 
 /**
@@ -16,9 +16,7 @@ export function BasePage({ heading, children }: BasePageProps) {
           <CardTitle>{heading}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4">
-            {children}
-          </div>
+          <div className="space-y-4">{children}</div>
         </CardContent>
       </Card>
     </div>

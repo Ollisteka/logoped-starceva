@@ -1,26 +1,26 @@
-import { BasePage } from "../components/BasePage";
-import { Avatar, AvatarImage, AvatarFallback } from "../components/SimpleAvatar";
-import { getPhotoPath } from "../helpers/urlBuilders";
-import { NBSP } from "../consts/typography";
+import { BasePage } from '../components/BasePage';
+import { Avatar, AvatarFallback, AvatarImage } from '../components/SimpleAvatar';
+import { NBSP } from '../consts/typography';
+import { getPhotoPath } from '../helpers/urlBuilders';
 
 export function ProfileSection() {
   const profileData = [
     {
-      label: "Профессия",
-      value: "Учитель-логопед"
+      label: 'Профессия',
+      value: 'Учитель-логопед',
     },
     {
-      label: "Профессиональные интересы",
-      value: `Диагностика речевых нарушений, коррекция звукопроизношения, развитие речи, коррекция дисграфии и${NBSP}дислексии`
+      label: 'Профессиональные интересы',
+      value: `Диагностика речевых нарушений, коррекция звукопроизношения, развитие речи, коррекция дисграфии и${NBSP}дислексии`,
     },
     {
-      label: "Увлечения",
-      value: `Одно из увлечений это моя работа. Мне нравится быть логопедом, с${NBSP}каждым годом всё больше.`
+      label: 'Увлечения',
+      value: `Одно из увлечений это моя работа. Мне нравится быть логопедом, с${NBSP}каждым годом всё больше.`,
     },
     {
-      label: "Место работы",
-      value: `ГБОУ СО «ЕШИ №${NBSP}12, реализующая адаптированные основные общеобразовательные программы», г.${NBSP}Екатеринбург`
-    }
+      label: 'Место работы',
+      value: `ГБОУ СО «ЕШИ №${NBSP}12, реализующая адаптированные основные общеобразовательные программы», г.${NBSP}Екатеринбург`,
+    },
   ];
 
   return (
@@ -29,10 +29,7 @@ export function ProfileSection() {
         <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
           <div className="flex-shrink-0">
             <Avatar className="w-40 h-40 border-4 border-gray-200">
-              <AvatarImage 
-                src={getPhotoPath('avatar.jpg')} 
-                alt="Старцева Светлана Александровна"
-              />
+              <AvatarImage src={getPhotoPath('avatar.jpg')} alt="Старцева Светлана Александровна" />
               <AvatarFallback>СС</AvatarFallback>
             </Avatar>
           </div>

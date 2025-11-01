@@ -1,20 +1,21 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+
 import { PATHS } from '../consts/paths';
 
 interface SidebarContextType {
   activeSection: string;
-  setActiveSection: (value: string) => void;
   isMobileOpen: boolean;
+  setActiveSection: (value: string) => void;
   setIsMobileOpen: (value: boolean) => void;
 }
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 interface SidebarProps {
-  defaultSection: string;
-  className?: string;
   children: React.ReactNode;
+  className?: string;
+  defaultSection: string;
 }
 
 export function Sidebar({ defaultSection, className = '', children }: SidebarProps) {
@@ -42,13 +43,15 @@ export function Sidebar({ defaultSection, className = '', children }: SidebarPro
 
 export function useSidebar() {
   const context = useContext(SidebarContext);
-  if (!context) throw new Error('useSidebar must be used within Sidebar');
+  if (!context) {
+    throw new Error('useSidebar must be used within Sidebar');
+  }
   return context;
 }
 
 interface SidebarMenuProps {
-  className?: string;
   children: React.ReactNode;
+  className?: string;
 }
 
 export function SidebarMenu({ className = '', children }: SidebarMenuProps) {
@@ -58,25 +61,18 @@ export function SidebarMenu({ className = '', children }: SidebarMenuProps) {
     <>
       {/* Desktop Sidebar */}
       <aside className={`hidden md:block ${className}`}>
-        <nav className="space-y-1 flex flex-col gap-2">
-          {children}
-        </nav>
+        <nav className="space-y-1 flex flex-col gap-2">{children}</nav>
       </aside>
 
       {/* Mobile Sidebar */}
       {isMobileOpen && (
         <>
           {/* Overlay */}
-          <div 
-            className="fixed inset-0 bg-black/50 z-40 md:hidden"
-            onClick={() => setIsMobileOpen(false)}
-          />
-          
+          <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={() => setIsMobileOpen(false)} />
+
           {/* Sidebar */}
           <aside className={`fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-50 md:hidden ${className}`}>
-            <nav className="space-y-1 p-1 flex flex-col gap-1">
-              {children}
-            </nav>
+            <nav className="space-y-1 p-1 flex flex-col gap-1">{children}</nav>
           </aside>
         </>
       )}
@@ -85,16 +81,17 @@ export function SidebarMenu({ className = '', children }: SidebarMenuProps) {
 }
 
 interface SidebarMenuItemProps {
-  value: string;
-  className?: string;
   children: React.ReactNode;
+  className?: string;
+  value: string;
 }
 
 export function SidebarMenuItem({ value, className = '', children }: SidebarMenuItemProps) {
   const { setIsMobileOpen } = useSidebar();
   const location = useLocation();
-  const isActive = location.pathname === PATHS[value.toUpperCase() as keyof typeof PATHS] || 
-                   (location.pathname === PATHS.HOME && value === 'profile');
+  const isActive =
+    location.pathname === PATHS[value.toUpperCase() as keyof typeof PATHS] ||
+    (location.pathname === PATHS.HOME && value === 'profile');
 
   const handleClick = () => {
     setIsMobileOpen(false); // Закрыть меню на мобильных при выборе
@@ -109,9 +106,7 @@ export function SidebarMenuItem({ value, className = '', children }: SidebarMenu
       to={getPath(value)}
       onClick={handleClick}
       className={`block w-full text-left px-4 py-3 rounded-lg transition-colors cursor-pointer ${
-        isActive
-          ? 'bg-gray-200 text-gray-800'
-          : 'hover:bg-gray-100 text-gray-700'
+        isActive ? 'bg-gray-200 text-gray-800' : 'hover:bg-gray-100 text-gray-700'
       } ${className}`}
     >
       {children}
@@ -120,17 +115,20 @@ export function SidebarMenuItem({ value, className = '', children }: SidebarMenu
 }
 
 interface SidebarContentProps {
-  value: string;
-  className?: string;
   children: React.ReactNode;
+  className?: string;
+  value: string;
 }
 
 export function SidebarContent({ value, className = '', children }: SidebarContentProps) {
   const location = useLocation();
-  const isActive = location.pathname === PATHS[value.toUpperCase() as keyof typeof PATHS] || 
-                   (location.pathname === PATHS.HOME && value === 'profile');
-  
-  if (!isActive) return null;
+  const isActive =
+    location.pathname === PATHS[value.toUpperCase() as keyof typeof PATHS] ||
+    (location.pathname === PATHS.HOME && value === 'profile');
+
+  if (!isActive) {
+    return null;
+  }
 
   return <div className={className}>{children}</div>;
 }
@@ -144,14 +142,14 @@ export function SidebarToggle() {
       className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
       aria-label="Toggle menu"
     >
-      <svg 
-        width="24" 
-        height="24" 
-        viewBox="0 0 24 24" 
-        fill="none" 
-        stroke="currentColor" 
-        strokeWidth="2" 
-        strokeLinecap="round" 
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
         strokeLinejoin="round"
       >
         {isMobileOpen ? (

@@ -1,17 +1,17 @@
-import { Link } from "./Link";
+import { Link } from './Link';
 
 export interface DownloadLink {
   href: string;
-  text: string;
   icon?: 'download' | 'link';
+  text: string;
 }
 
 interface LinkListProps {
-  downloads: DownloadLink[];
   className?: string;
+  downloads: DownloadLink[];
 }
 
-export function LinkList({ downloads, className = "" }: LinkListProps) {
+export function LinkList({ downloads, className = '' }: LinkListProps) {
   if (!downloads || downloads.length === 0) {
     return null;
   }
@@ -20,7 +20,7 @@ export function LinkList({ downloads, className = "" }: LinkListProps) {
     <div className={`flex flex-col gap-2 ${className}`}>
       {downloads.map((download, index) => (
         <Link key={index} href={download.href} icon={download.icon || 'download'}>
-          {download.text || "Скачать"}
+          {download.text || 'Скачать'}
         </Link>
       ))}
     </div>

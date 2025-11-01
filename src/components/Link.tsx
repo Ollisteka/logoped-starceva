@@ -1,20 +1,14 @@
 import React from 'react';
 
 interface LinkProps {
-  href: string;
   children: React.ReactNode;
   className?: string;
   download?: boolean;
-  icon?: 'download' | 'link',
+  href: string;
+  icon?: 'download' | 'link';
 }
 
-export function Link({
-  href,
-  children,
-  className = '',
-  icon = 'download',
-  download = false
-}: LinkProps) {
+export function Link({ href, children, className = '', icon = 'download', download = false }: LinkProps) {
   return (
     <a
       href={href}

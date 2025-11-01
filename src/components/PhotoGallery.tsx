@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { createPortal } from "react-dom";
-import { ImageGalleryModal } from "./SimpleModal";
-import { getPhotoPath } from "../helpers/urlBuilders";
+import { useState } from 'react';
+import { createPortal } from 'react-dom';
+
+import { getPhotoPath } from '../helpers/urlBuilders';
+import { ImageGalleryModal } from './SimpleModal';
 
 // Функция для форматирования заголовков в ID
 const formatHeading = (title: string): string => {
@@ -9,8 +10,8 @@ const formatHeading = (title: string): string => {
 };
 
 interface PhotoImage {
-  src: string;
   alt: string;
+  src: string;
 }
 
 interface PhotoGalleryData {
@@ -19,14 +20,14 @@ interface PhotoGalleryData {
 }
 
 interface PhotoGalleryProps {
+  className?: string;
   photos: PhotoGalleryData;
   title: string;
-  className?: string;
 }
 
-export function PhotoGallery({ photos, title, className = "" }: PhotoGalleryProps) {
+export function PhotoGallery({ photos, title, className = '' }: PhotoGalleryProps) {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
-  const [currentGalleryImages, setCurrentGalleryImages] = useState<{ src: string; alt: string }[]>([]);
+  const [currentGalleryImages, setCurrentGalleryImages] = useState<{ alt: string; src: string }[]>([]);
 
   const handleNextImage = () => {
     if (selectedImageIndex !== null && currentGalleryImages.length > 0) {
@@ -36,16 +37,14 @@ export function PhotoGallery({ photos, title, className = "" }: PhotoGalleryProp
 
   const handlePrevImage = () => {
     if (selectedImageIndex !== null && currentGalleryImages.length > 0) {
-      setSelectedImageIndex(
-        selectedImageIndex === 0 ? currentGalleryImages.length - 1 : selectedImageIndex - 1
-      );
+      setSelectedImageIndex(selectedImageIndex === 0 ? currentGalleryImages.length - 1 : selectedImageIndex - 1);
     }
   };
 
   const openGallery = (imageIndex: number = 0) => {
     const imagesWithPaths = photos.images.map(img => ({
       src: getPhotoPath(`${photos.basePath}/${img.src}`),
-      alt: img.alt
+      alt: img.alt,
     }));
     setCurrentGalleryImages(imagesWithPaths);
     setSelectedImageIndex(imageIndex);
@@ -53,18 +52,14 @@ export function PhotoGallery({ photos, title, className = "" }: PhotoGalleryProp
 
   return (
     <>
-      <section 
-        className={`border-t border-gray-200 pt-6 mt-6 ${className}`} 
+      <section
+        className={`border-t border-gray-200 pt-6 mt-6 ${className}`}
         aria-labelledby={`gallery-heading-${formatHeading(title)}`}
       >
         <h4 id={`gallery-heading-${formatHeading(title)}`} className="mb-4 text-sm font-medium text-gray-700">
           Фотографии
         </h4>
-        <div 
-          role="img" 
-          aria-label={`Галерея фотографий: ${title}`}
-          className="flex flex-wrap gap-2 pb-2"
-        >
+        <div role="img" aria-label={`Галерея фотографий: ${title}`} className="flex flex-wrap gap-2 pb-2">
           {photos.images.map((image, imgIndex) => (
             <button
               key={imgIndex}
@@ -102,17 +97,18 @@ export function PhotoGallery({ photos, title, className = "" }: PhotoGalleryProp
           ))}
         </div>
       </section>
-      
-      {selectedImageIndex !== null && createPortal(
-        <ImageGalleryModal
-          images={currentGalleryImages}
-          currentIndex={selectedImageIndex}
-          onClose={() => setSelectedImageIndex(null)}
-          onNext={handleNextImage}
-          onPrev={handlePrevImage}
-        />,
-        document.body
-      )}
+
+      {selectedImageIndex !== null &&
+        createPortal(
+          <ImageGalleryModal
+            images={currentGalleryImages}
+            currentIndex={selectedImageIndex}
+            onClose={() => setSelectedImageIndex(null)}
+            onNext={handleNextImage}
+            onPrev={handlePrevImage}
+          />,
+          document.body
+        )}
     </>
   );
 }

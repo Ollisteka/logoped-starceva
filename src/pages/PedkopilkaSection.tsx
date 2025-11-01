@@ -1,49 +1,49 @@
-import { BasePage } from "../components/BasePage";
-import { Article } from "../components/Article";
-import { LinkList } from "../components/LinkList";
-import { NBSP } from "../consts/typography";
-import { getDocumentPath } from "../helpers/urlBuilders";
+import { Article } from '../components/Article';
+import { BasePage } from '../components/BasePage';
+import { LinkList } from '../components/LinkList';
+import { NBSP } from '../consts/typography';
+import { getDocumentPath } from '../helpers/urlBuilders';
 
 export function PedkopilkaSection() {
   const materials = [
     {
-      title: "Логопедическая диагностика обучающихся 1 класса",
-      category: "Методические материалы",
-      year: "2025",
+      title: 'Логопедическая диагностика обучающихся 1 класса',
+      category: 'Методические материалы',
+      year: '2025',
       description: `Сборник упражнений для проведения обследования устной речи у${NBSP}обучающихся с${NBSP}интеллектуальными нарушениями`,
       downloads: [
         {
           href: getDocumentPath('presentation-speech-therapy-diagnostics-grade-1.pptx'),
-          text: "Презентация с упражнениями"
+          text: 'Презентация с упражнениями',
         },
         {
           href: 'https://vk.com/wall-205395714_1655',
-          text: "Фото с ШМО специалистов",
-          icon: 'link' as const
-        }
-      ]
+          text: 'Фото с ШМО специалистов',
+          icon: 'link' as const,
+        },
+      ],
     },
     {
       title: `Звук и буква А`,
-      category: "Презентации",
-      year: "2025",
+      category: 'Презентации',
+      year: '2025',
       description: `Презентация предназначена для знакомства ребёнка с${NBSP}буквой «А» и${NBSP}формирования познавательных, коммуникативных и${NBSP}регулятивных умений через игровые задания и${NBSP}общение с${NBSP}учителем.`,
       downloads: [
         {
           href: getDocumentPath('a-letter/a-letter-presentation.pptx'),
-          text: "Презентация с упражнениями"
+          text: 'Презентация с упражнениями',
         },
         {
           href: getDocumentPath('a-letter/a-letter-svidetelstvo.jpg'),
-          text: "Свидетельство о размещении материала"
+          text: 'Свидетельство о размещении материала',
         },
         {
           href: 'https://infourok.ru/prezentaciya-na-temu-zvuk-i-bukva-a-7946372.html',
-          text: "Публикация на сайте Инфоурок",
-          icon: 'link' as const
-        }
-      ]
-    }
+          text: 'Публикация на сайте Инфоурок',
+          icon: 'link' as const,
+        },
+      ],
+    },
   ];
 
   return (
@@ -56,9 +56,7 @@ export function PedkopilkaSection() {
           badges={[{ text: material.category, variant: 'outline' }]}
           description={material.description}
         >
-          {material.downloads && (
-            <LinkList downloads={material.downloads} />
-          )}
+          {material.downloads && <LinkList downloads={material.downloads} />}
         </Article>
       ))}
     </BasePage>

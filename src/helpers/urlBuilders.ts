@@ -1,4 +1,4 @@
-import { BASE_PATH } from "../consts/paths";
+import { BASE_PATH } from '../consts/paths';
 
 /**
  * Нормализует путь, убирая ведущий слэш если он есть
@@ -28,4 +28,3 @@ export function getPhotoPath(path: string): string {
   const normalizedPath = normalizePath(path);
   return `${BASE_PATH}/photos/${normalizedPath}`;
 }
-

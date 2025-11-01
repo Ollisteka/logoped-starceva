@@ -33,5 +33,9 @@ interface AvatarFallbackProps {
 }
 
 export function AvatarFallback({ className = '', children }: AvatarFallbackProps) {
-  return <div className={`w-full h-full flex items-center justify-center bg-gray-200 ${className}`}>{children}</div>;
+  return (
+    <div className={`w-full h-full flex items-center justify-center bg-gray-200 dark:bg-gray-700 ${className}`}>
+      {children}
+    </div>
+  );
 }

@@ -6,7 +6,11 @@ interface CardProps {
 }
 
 export function Card({ className = '', children }: CardProps) {
-  return <div className={`bg-white rounded-xl border border-gray-200 ${className}`}>{children}</div>;
+  return (
+    <div className={`bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 ${className}`}>
+      {children}
+    </div>
+  );
 }
 
 interface CardHeaderProps {

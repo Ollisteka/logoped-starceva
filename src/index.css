@@ -25,3 +25,19 @@
 .photo-gallery-scroll::-webkit-scrollbar-thumb:hover {
     background: #9ca3af;
 }
+
+.dark .photo-gallery-scroll {
+    scrollbar-color: #4b5563 #374151;
+}
+
+.dark .photo-gallery-scroll::-webkit-scrollbar-track {
+    background: #374151;
+}
+
+.dark .photo-gallery-scroll::-webkit-scrollbar-thumb {
+    background: #4b5563;
+}
+
+.dark .photo-gallery-scroll::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+}

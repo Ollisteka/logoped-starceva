@@ -51,7 +51,9 @@ export function TabsTrigger({ value, className = '', children }: TabsTriggerProp
     <button
       onClick={() => setActiveTab(value)}
       className={`px-4 py-2 rounded-lg transition-colors ${
-        isActive ? 'bg-white shadow-sm' : 'bg-transparent hover:bg-white/50'
+        isActive
+          ? 'bg-white dark:bg-slate-800 shadow-sm'
+          : 'bg-transparent hover:bg-white/50 dark:hover:bg-slate-700/50'
       } ${className}`}
     >
       {children}

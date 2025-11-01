@@ -28,7 +28,7 @@ export function ProfileSection() {
       <div className="p-8">
         <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
           <div className="flex-shrink-0">
-            <Avatar className="w-40 h-40 border-4 border-gray-200">
+            <Avatar className="w-40 h-40 border-4 border-gray-200 dark:border-slate-600">
               <AvatarImage src={getPhotoPath('avatar.jpg')} alt="Старцева Светлана Александровна" />
               <AvatarFallback>СС</AvatarFallback>
             </Avatar>
@@ -36,9 +36,9 @@ export function ProfileSection() {
 
           <div className="flex-1 space-y-6 w-full">
             {profileData.map((item, index) => (
-              <div key={index} className="border-l-4 border-gray-200 pl-4 py-2">
-                <h3 className="text-black font-medium mb-1">{item.label}</h3>
-                <p className="text-foreground/80">{item.value}</p>
+              <div key={index} className="border-l-4 border-gray-200 dark:border-slate-600 pl-4 py-2">
+                <h3 className="text-black dark:text-gray-100 font-medium mb-1">{item.label}</h3>
+                <p className="text-foreground/80 dark:text-gray-100">{item.value}</p>
               </div>
             ))}
           </div>

@@ -15,7 +15,7 @@ export function Link({ href, children, className = '', icon = 'download', downlo
       target="_blank"
       rel="noopener noreferrer"
       download={download}
-      className={`inline-flex cursor-pointer items-center gap-2 text-indigo-600 hover:text-indigo-600/70 hover:underline transition-colors ${className}`}
+      className={`inline-flex cursor-pointer items-center gap-2 text-indigo-600 dark:text-indigo-300 hover:text-indigo-600/70 dark:hover:text-indigo-300/70 hover:underline transition-colors ${className}`}
     >
       {icon === 'download' ? (
         <svg

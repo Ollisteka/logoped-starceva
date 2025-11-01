@@ -9,9 +9,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export function Button({ variant = 'default', size = 'default', className = '', children, ...props }: ButtonProps) {
   const variantStyles = {
-    default: 'bg-gray-900 text-white hover:bg-gray-800',
-    ghost: 'bg-transparent hover:bg-gray-100 text-gray-700',
-    outline: 'bg-transparent border border-gray-300 hover:bg-gray-50 text-gray-700',
+    default: 'bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-200',
+    ghost: 'bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300',
+    outline:
+      'bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300',
   };
 
   const sizeStyles = {

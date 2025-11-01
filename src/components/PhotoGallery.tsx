@@ -53,10 +53,13 @@ export function PhotoGallery({ photos, title, className = '' }: PhotoGalleryProp
   return (
     <>
       <section
-        className={`border-t border-gray-200 pt-6 mt-6 ${className}`}
+        className={`border-t border-gray-200 dark:border-slate-700 pt-6 mt-6 ${className}`}
         aria-labelledby={`gallery-heading-${formatHeading(title)}`}
       >
-        <h4 id={`gallery-heading-${formatHeading(title)}`} className="mb-4 text-sm font-medium text-gray-700">
+        <h4
+          id={`gallery-heading-${formatHeading(title)}`}
+          className="mb-4 text-sm font-medium text-gray-700 dark:text-gray-300"
+        >
           Фотографии
         </h4>
         <div role="img" aria-label={`Галерея фотографий: ${title}`} className="flex flex-wrap gap-2 pb-2">

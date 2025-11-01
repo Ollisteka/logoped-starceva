@@ -1,35 +1,37 @@
 import { BasePage } from "../components/BasePage";
 import { Article } from "../components/Article";
+import { LinkList } from "../components/LinkList";
+import { NBSP } from "../consts/typography";
 
 export function SportsSection() {
   const sportsEvents = [
     {
-      title: "Школьная спартакиада",
-      date: "Сентябрь 2024",
-      role: "Участник",
-      achievement: "Командное 2 место в эстафете",
-      category: "Командные"
+      title: "Открытый урок ко дню гражданской обороны РФ",
+      date: "Октябрь 2025",
+      role: "Организатор",
+      achievement: `В качестве закрепления темы «Пожарная безопасность» был проведен совместный практический урок с${NBSP}пожарными`,
+      category: "Организация",
+      downloads: [
+        {
+          href: 'https://vk.com/wall-205395714_1606',
+          text: "Пост Вконтакте",
+          icon: 'link' as const
+        }
+      ]
     },
     {
       title: "День здоровья",
-      date: "Май 2024",
+      date: "Сентябрь 2025",
       role: "Организатор",
-      achievement: "Организация логопедической станции на квесте",
-      category: "Организация"
-    },
-    {
-      title: "Педагогический турнир по волейболу",
-      date: "Март 2024",
-      role: "Участник",
-      achievement: "3 место в городском этапе",
-      category: "Командные"
-    },
-    {
-      title: "Лыжные гонки",
-      date: "Февраль 2024",
-      role: "Участник",
-      achievement: "Участие в районных соревнованиях",
-      category: "Индивидуальные"
+      achievement: `Провела спортивную игру «Веселые старты». Дети с${NBSP}ОВЗ из${NBSP}первых классов состязались в${NBSP}беге, прыжках; собирали яблоки и${NBSP}бросали картошку; делали веселую разминку и${NBSP}отгадвали загадки. Вместе с родителями закидывали кольца на кольцеброс.`,
+      category: "Организация",
+      downloads: [
+        {
+          href: 'https://vk.com/wall-205395714_1580',
+          text: "Пост Вконтакте",
+          icon: 'link' as const
+        }
+      ]
     }
   ];
 
@@ -46,6 +48,9 @@ export function SportsSection() {
           ]}
           description={event.achievement}
         >
+          {event.downloads && (
+            <LinkList downloads={event.downloads} />
+          )}
         </Article>
       ))}
     </BasePage>

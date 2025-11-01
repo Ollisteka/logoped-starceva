@@ -15,6 +15,11 @@ export function PedkopilkaSection() {
         {
           href: getDocumentPath('presentation-speech-therapy-diagnostics-grade-1.pptx'),
           text: "Презентация с упражнениями"
+        },
+        {
+          href: 'https://vk.com/wall-205395714_1655',
+          text: "Фото с ШМО специалистов",
+          icon: 'link' as const
         }
       ]
     },

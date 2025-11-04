@@ -7,6 +7,30 @@ import { getDocumentPath } from '../helpers/urlBuilders';
 export function PedkopilkaSection() {
   const materials = [
     {
+      title: 'Картотека пальчиковых игр',
+      category: 'Методические материалы',
+      year: '2025',
+      description: `Сборник пальчиковых игр для развития мелкой моторики рук и${NBSP}речевой активности у${NBSP}обучающихся`,
+      downloads: [
+        {
+          href: getDocumentPath('finger-games-catalog.docx'),
+          text: 'Пальчиковые игры',
+        },
+      ],
+    },
+    {
+      title: 'Картотека рассказов для чтения',
+      category: 'Методические материалы',
+      year: '2025',
+      description: `Подборка рассказов для развития навыков чтения, понимания текста и${NBSP}расширения словарного запаса у${NBSP}обучающихся`,
+      downloads: [
+        {
+          href: getDocumentPath('reading-stories-catalog.docx'),
+          text: 'Рассказы для чтения',
+        },
+      ],
+    },
+    {
       title: 'Логопедическая диагностика обучающихся 1 класса',
       category: 'Методические материалы',
       year: '2025',

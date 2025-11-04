@@ -9,9 +9,7 @@ function initializeTheme(): void {
   const stored = localStorage.getItem(THEME_STORAGE_KEY) as 'light' | 'dark' | 'system' | null;
   const theme = stored && ['light', 'dark', 'system'].includes(stored) ? stored : 'system';
 
-  const isDark =
-    theme === 'dark' ||
-    (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
   if (isDark) {
     document.documentElement.classList.add('dark');

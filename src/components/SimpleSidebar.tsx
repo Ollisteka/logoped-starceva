@@ -72,9 +72,9 @@ export function SidebarMenu({ className = '', children }: SidebarMenuProps) {
 
           {/* Sidebar */}
           <aside
-            className={`fixed top-0 left-0 h-full w-64 bg-white dark:bg-slate-800 shadow-xl z-50 md:hidden ${className}`}
+            className={`fixed top-0 left-0 h-full w-64 bg-white dark:bg-slate-800 shadow-xl z-50 md:hidden flex flex-col ${className}`}
           >
-            <nav className="space-y-1 p-1 flex flex-col gap-1">{children}</nav>
+            <nav className="space-y-1 p-1 flex flex-col gap-1 overflow-y-auto flex-1">{children}</nav>
           </aside>
         </>
       )}

@@ -7,6 +7,23 @@ import { getDocumentPath } from '../helpers/urlBuilders';
 export function PedkopilkaSection() {
   const materials = [
     {
+      title: 'Логоперемена',
+      category: 'Методические материалы',
+      year: '2025',
+      description: `Методика проведения логопедических игр во время перемен. Описание подвижных игр с${NBSP}буквами, слогами и${NBSP}словами для обучающихся начальной и${NBSP}старшей школы с${NBSP}интеллектуальными нарушениями. Игры способствуют закреплению знаний в${NBSP}неформальной обстановке и${NBSP}коллективному взаимодействию.`,
+      downloads: [
+        {
+          href: 'https://www.1urok.ru/categories/24/articles/100433',
+          text: 'Статья на сайте журнала «Современный урок»',
+          icon: 'link' as const,
+        },
+        {
+          href: getDocumentPath('diplom-logoperemena.png'),
+          text: 'Диплом участника конкурса',
+        },
+      ],
+    },
+    {
       title: 'Картотека пальчиковых игр',
       category: 'Методические материалы',
       year: '2025',

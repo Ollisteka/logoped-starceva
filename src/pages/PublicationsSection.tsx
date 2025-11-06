@@ -7,6 +7,23 @@ import { getDocumentPath } from '../helpers/urlBuilders';
 export function PublicationsSection() {
   const publications = [
     {
+      title: `Логоперемена`,
+      year: '2025',
+      type: 'Статья',
+      description: `Статья о проведении логопедических игр во время перемен для обучающихся с${NBSP}интеллектуальными нарушениями. Описаны подвижные игры с${NBSP}буквами и${NBSP}словами, способствующие закреплению знаний и${NBSP}умений в${NBSP}неформальной обстановке.`,
+      downloads: [
+        {
+          href: 'https://www.1urok.ru/categories/24/articles/100433',
+          text: 'Статья на сайте журнала «Современный урок»',
+          icon: 'link' as const,
+        },
+        {
+          href: getDocumentPath('diplom-logoperemena.png'),
+          text: 'Диплом участника конкурса',
+        },
+      ],
+    },
+    {
       title: `Особенности организации обучения на${NBSP}дому обучающихся с${NBSP}интеллектуальными нарушениями`,
       year: '2025',
       type: 'Статья',

@@ -18,7 +18,7 @@ export function PedkopilkaSection() {
           icon: 'link' as const,
         },
         {
-          href: getDocumentPath('diplom-logoperemena.png'),
+          href: getDocumentPath('logoperemena/diplom-logoperemena.png'),
           text: 'Диплом участника конкурса',
         },
       ],

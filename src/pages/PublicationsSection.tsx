@@ -18,8 +18,16 @@ export function PublicationsSection() {
           icon: 'link' as const,
         },
         {
-          href: getDocumentPath('diplom-logoperemena.png'),
+          href: getDocumentPath('logoperemena/diplom-logoperemena.png'),
           text: 'Диплом участника конкурса',
+        },
+        {
+          href: getDocumentPath('logoperemena/smi-publication-certificate.png'),
+          text: 'Свидетельство о публикации в СМИ',
+        },
+        {
+          href: getDocumentPath('logoperemena/1urok-journal.pdf'),
+          text: 'Журнал «Современный урок»',
         },
       ],
     },

@@ -4,6 +4,7 @@ import { Sidebar, SidebarContent, SidebarMenu, SidebarMenuItem, SidebarToggle } 
 import {
   CompetitionsSection,
   CoursesSection,
+  ExtracurricularSection,
   MentorshipSection,
   PedkopilkaSection,
   ProfileSection,
@@ -23,7 +24,7 @@ export default function App() {
                 <h2 className="mb-1">Старцева Светлана Александровна</h2>
                 <p className="text-sm text-gray-600">Учитель-логопед</p>
               </div>
-
+              
               <SidebarMenuItem value="profile">Профиль</SidebarMenuItem>
               <SidebarMenuItem value="publications">Публикации</SidebarMenuItem>
               <SidebarMenuItem value="pedkopilka">Педкопилка</SidebarMenuItem>
@@ -31,6 +32,7 @@ export default function App() {
               <SidebarMenuItem value="sports">Спортивные мероприятия</SidebarMenuItem>
               <SidebarMenuItem value="competitions">Конкурсы</SidebarMenuItem>
               <SidebarMenuItem value="courses">Курсы</SidebarMenuItem>
+              <SidebarMenuItem value="extracurricular">Внеклассная работа</SidebarMenuItem>
             </SidebarMenu>
 
             {/* Main Content */}
@@ -71,6 +73,10 @@ export default function App() {
 
                 <SidebarContent value="courses">
                   <CoursesSection />
+                </SidebarContent>
+
+                <SidebarContent value="extracurricular">
+                  <ExtracurricularSection />
                 </SidebarContent>
 
                 <footer className="mt-12 text-center text-gray-500 text-sm">

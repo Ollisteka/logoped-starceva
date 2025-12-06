@@ -1,18 +1,10 @@
+import { ROUTE_PATHS } from '../../vite-build-constants';
+
 // Базовый путь для GitHub Pages
 export const BASE_PATH = import.meta.env.BASE_URL || '';
 
-// Константы путей для навигации
-export const PATHS = {
-  HOME: '/',
-  PROFILE: '/',
-  PUBLICATIONS: '/publications',
-  PEDKOPILKA: '/pedkopilka',
-  MENTORSHIP: '/mentorship',
-  SPORTS: '/sports',
-  COMPETITIONS: '/competitions',
-  COURSES: '/courses',
-  EXTRACURRICULAR: '/extracurricular',
-} as const;
+// Константы путей для навигации (реэкспорт из vite-build-constants.ts)
+export const PATHS = ROUTE_PATHS;
 
 // Названия разделов для отображения
 export const SECTION_NAMES = {

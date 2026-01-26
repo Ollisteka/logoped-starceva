@@ -36,10 +36,14 @@ export function PublicationsSection() {
       year: '2025',
       type: 'Статья',
       description: `В научной статье рассматривается опыт работы образовательной организации, реализующей АООП, а${NBSP}также личный опыт автора в${NBSP}вопросах обучения на${NBSP}дому обучающихся с${NBSP}интеллектуальными нарушениями, в${NBSP}том числе реализуемые формы, методы и${NBSP}приемы работы с${NBSP}обучающимися и${NBSP}их${NBSP}родителями (законными представителями). Указана актуальность научной работы, приведены статистические данные.`,
-      additionalBadges: [
+      downloads: [
         {
-          text: 'Ждёт публикации',
-          variant: 'secondary' as const,
+          href: getDocumentPath('hospital-pedagogy/materials-UZ-ZSH-2025.docx'),
+          text: `Материалы конференции (DOCX)`,
+        },
+        {
+          href: getDocumentPath('hospital-pedagogy/materials-UZ-ZSH-2025.pdf'),
+          text: `Материалы конференции (PDF)`,
         },
       ],
     },

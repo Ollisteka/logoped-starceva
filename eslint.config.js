@@ -45,13 +45,13 @@ export default [
       ...reactHooks.configs.recommended.rules,
       ...jsxA11y.configs.recommended.rules,
       ...prettierConfig.rules,
-      'complexity': ['error', 10 ],
-      'max-depth': ['error',  5 ],
+      complexity: ['error', 10],
+      'max-depth': ['error', 5],
       'max-lines-per-function': ['error', { max: 120, skipBlankLines: true, skipComments: true }],
       'max-params': ['error', { max: 3 }],
       'prettier/prettier': 'error',
-      'semi': ['error', 'always'],
-      'curly': ['error', 'all'],
+      semi: ['error', 'always'],
+      curly: ['error', 'all'],
       'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
@@ -65,31 +65,49 @@ export default [
       'jsx-a11y/no-noninteractive-element-interactions': 'warn',
       'jsx-a11y/no-noninteractive-tabindex': 'warn',
       'jsx-a11y/no-static-element-interactions': 'warn',
-      'perfectionist/sort-imports': ['error', {
-        type: 'alphabetical',
-        order: 'asc',
-        ignoreCase: true,
-      }],
-      'perfectionist/sort-exports': ['error', {
-        type: 'alphabetical',
-        order: 'asc',
-      }],
-      'perfectionist/sort-object-types': ['error', {
-        type: 'alphabetical',
-        order: 'asc',
-      }],
-      'perfectionist/sort-interfaces': ['error', {
-        type: 'alphabetical',
-        order: 'asc',
-      }],
-      'perfectionist/sort-named-imports': ['error', {
-        type: 'alphabetical',
-        order: 'asc',
-      }],
-      'perfectionist/sort-named-exports': ['error', {
-        type: 'alphabetical',
-        order: 'asc',
-      }],
+      'perfectionist/sort-imports': [
+        'error',
+        {
+          type: 'alphabetical',
+          order: 'asc',
+          ignoreCase: true,
+        },
+      ],
+      'perfectionist/sort-exports': [
+        'error',
+        {
+          type: 'alphabetical',
+          order: 'asc',
+        },
+      ],
+      'perfectionist/sort-object-types': [
+        'error',
+        {
+          type: 'alphabetical',
+          order: 'asc',
+        },
+      ],
+      'perfectionist/sort-interfaces': [
+        'error',
+        {
+          type: 'alphabetical',
+          order: 'asc',
+        },
+      ],
+      'perfectionist/sort-named-imports': [
+        'error',
+        {
+          type: 'alphabetical',
+          order: 'asc',
+        },
+      ],
+      'perfectionist/sort-named-exports': [
+        'error',
+        {
+          type: 'alphabetical',
+          order: 'asc',
+        },
+      ],
     },
     settings: {
       react: {

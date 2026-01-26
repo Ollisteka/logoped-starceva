@@ -71,8 +71,10 @@ export function SidebarMenu({ className = '', children }: SidebarMenuProps) {
           <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={() => setIsMobileOpen(false)} />
 
           {/* Sidebar */}
-          <aside className={`fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-50 md:hidden ${className}`}>
-            <nav className="space-y-1 p-1 flex flex-col gap-1">{children}</nav>
+          <aside
+            className={`fixed top-0 left-0 h-full w-64 bg-white dark:bg-slate-800 shadow-xl z-50 md:hidden flex flex-col ${className}`}
+          >
+            <nav className="space-y-1 p-1 flex flex-col gap-1 overflow-y-auto flex-1">{children}</nav>
           </aside>
         </>
       )}
@@ -106,7 +108,9 @@ export function SidebarMenuItem({ value, className = '', children }: SidebarMenu
       to={getPath(value)}
       onClick={handleClick}
       className={`block w-full text-left px-4 py-3 rounded-lg transition-colors cursor-pointer ${
-        isActive ? 'bg-gray-200 text-gray-800' : 'hover:bg-gray-100 text-gray-700'
+        isActive
+          ? 'bg-gray-200 dark:bg-slate-700 text-gray-800 dark:text-gray-100'
+          : 'hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300'
       } ${className}`}
     >
       {children}
@@ -139,7 +143,7 @@ export function SidebarToggle() {
   return (
     <button
       onClick={() => setIsMobileOpen(!isMobileOpen)}
-      className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+      className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 dark:text-gray-200 transition-colors"
       aria-label="Toggle menu"
     >
       <svg

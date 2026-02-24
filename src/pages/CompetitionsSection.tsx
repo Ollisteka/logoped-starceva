@@ -8,6 +8,23 @@ import { getDocumentPath } from '../helpers/urlBuilders';
 export function CompetitionsSection() {
   const competitions = [
     {
+      title: `Конкурс педагогического мастерства «Вдохновение»`,
+      year: '2026',
+      result: '2 место',
+      description: `2026 год назван годом единства народов России. Я приняла участие в${NBSP}конкурсе педмастерства «Вдохновение» на тему «Единство народов России» в${NBSP}номинации «Сценарий урока» «Народы России одна семья»`,
+      level: 'Всероссийский',
+      downloads: [
+        {
+          href: getDocumentPath('united-nations/diploma.docx'),
+          text: 'Диплом',
+        },
+        {
+          href: getDocumentPath('united-nations/lesson-scenario.docx'),
+          text: 'Сценарий урока',
+        },
+      ],
+    },
+    {
       title: `«Организация специальных условий, методы и${NBSP}приёмы работы обучения и${NBSP}воспитания детей с${NBSP}ОВЗ и${NBSP}с${NBSP}инвалидностью, с${NBSP}учётом целевых ориентиров ФАООП»`,
       year: '2025',
       result: '1 место',
